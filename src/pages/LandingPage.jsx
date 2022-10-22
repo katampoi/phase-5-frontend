@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar'
 import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
 import ShareContent from '../components/ShareContent';
+import Tweet from '../components/Tweet';
 function LandingPage() {
 
   function ListItem({word,path,icon}){
@@ -30,12 +31,16 @@ function LandingPage() {
           </div>
 
         </section>
-        <section id='middle' className='bg-blue-900 h-[90vh]'>
+        <section id='middle' className=' h-[90vh] space-y-4'>
           <ShareContent/>
 
-        </section>
-        <section id="leftBar" className=' h-[90vh] bg-[#e3ebfa] rounded-xl'>
+          <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl ">
+          <Tweet/>
+          </section>
 
+        </section>
+        <section id="leftBar" className=' h-[90vh] bg-[#e3ebfa] rounded-xl '>
+          
         </section>
       </section>
     </div>
