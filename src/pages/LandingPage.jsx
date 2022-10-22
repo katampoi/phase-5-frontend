@@ -34,7 +34,11 @@ function LandingPage() {
         <section id='middle' className=' h-[90vh] space-y-4'>
           <ShareContent/>
 
-          <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl ">
+          <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
+          <Tweet/>
+          <Tweet/>
+          <Tweet/>
+          <Tweet/>
           <Tweet/>
           </section>
 
