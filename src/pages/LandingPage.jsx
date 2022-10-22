@@ -1,13 +1,13 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import * as Io from "react-icons/io"
-
+import * as Fa from "react-icons/fa";
 function LandingPage() {
 
   function ListItem({word,path,icon}){
     return(
-      <li onClick={path} className='flex flex-row  text-[1.3rem] text-gray-700 font-semibold  w-full px-4 py-2 rounded-lg hover:bg-[#3080ED] hover:text-white'>
-        {icon}{word}
+      <li onClick={path} className='flex flex-row space-x-3 text-[1.3rem] text-gray-700 font-semibold  w-full px-4 py-2 rounded-lg hover:bg-[#3080ED] hover:text-white'>
+        {icon} <div>{word}</div>
       </li>
     )
   }
@@ -18,10 +18,10 @@ function LandingPage() {
         <section id="leftBar" className='w-[440px] h-[90vh] bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10'>
           <ul className='px-10  space-y-2'>
             <ListItem word={'Home'} icon={<Io.IoIosHome  size={24}/>}/>
-            <ListItem word={'Subscribe'} icon={<Io.IoIosList size={24}/>}/>
+            <ListItem word={'Subscribe'} icon={<Fa.FaList size={24}/>}/>
           </ul>
           
-          <div>
+          <div className=' text-gray-700 text-[1.2rem]  px-10'>
             <p>
             Join Us to have more fun. Create an account,subscribe to gain access to more fun content. 
             </p>
