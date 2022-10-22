@@ -14,8 +14,8 @@ function NavBar() {
         </div>
       </div>
       <div className='flex '>
-        <Button word={'Login'}/>
-        <Button word={'Register'}/>
+        <Button word={'Login'} classN={'Button1'}/>
+        <Button word={'Register'} classN={'Button2'}/>
       </div>
     </div>
   )
