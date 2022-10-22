@@ -1,10 +1,10 @@
 import './App.css';
+import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
-    <div className="flex">
-      <h1 className=''>Helo</h1>
-      <div>key</div>
+    <div className="p-2">
+      <LandingPage/>
     </div>
   );
 }
