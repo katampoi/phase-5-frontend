@@ -4,16 +4,16 @@ import LogoImage from './LogoImage'
 
 function NavBar() {
   return (
-    <div className='flex flex-row items-center '>
+    <div className='grid grid-cols-3 gap-4  items-center mx-1'>
       <LogoImage/>
-      <div>
-        <div className='border w-fit rounded-lg '>
+      <div className='flex flex-row justify-end'>
+        <div className='border w-full rounded-lg search '>
           <form>
-            <input className='' type="text" placeholder='search...' />
+            <input className='outline-none bg-[#F1F5FF] w-full text-lg  text-gray-500 placeholder-gray-500' type="text" placeholder='Search . . .' />
           </form>
         </div>
       </div>
-      <div className='flex '>
+      <div className='flex flex-row'>
         <Button word={'Login'} classN={'Button1'}/>
         <Button word={'Register'} classN={'Button2'}/>
       </div>
