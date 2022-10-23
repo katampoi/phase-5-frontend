@@ -16,7 +16,7 @@ function LandingPage() {
   return (
     <div className='mx-3'>
       <NavBar/>
-      <section id="body" className='grid grid-cols-[440px,940px,440px] justify-between gap-3 mt-4 '>
+      <section id="body" className='grid grid-cols-[540px,auto,540px] justify-center gap-8 mt-4 '>
         <section id="leftBar" className='h-[90vh] bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10'>
           <ul className='px-10  space-y-2'>
             <ListItem word={'Home'} icon={<Io.IoIosHome  size={24}/>}/>

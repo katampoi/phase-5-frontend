@@ -4,7 +4,7 @@ import LogoImage from './LogoImage'
 
 function NavBar() {
   return (
-    <div className='grid grid-cols-[440px,940px,440px] gap-4 justify-between items-center mx-1'>
+    <div className='grid grid-cols-[540px,940px,540px] gap-4 justify-center items-center mx-1'>
       <LogoImage/>
       <div className='flex flex-row justify-end'>
         <div className='border w-full rounded-lg search '>

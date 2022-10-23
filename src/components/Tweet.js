@@ -1,4 +1,6 @@
 import React from 'react'
+import * as Io from "react-icons/io"
+import * as Fa from "react-icons/fa";
 
 function Tweet() {
   return (
@@ -15,8 +17,25 @@ function Tweet() {
 
         </p>
 
-        <div className='flex flex-row'>
-
+        <div className='flex flex-row mt-2 text-xl space-x-6'>
+            <div className='flex flex-row items-center space-x-1'>
+                <Fa.FaHeart/>
+                <span className='text-sm'>2.1k</span>
+            </div>
+            <div className='flex flex-row items-center space-x-1'>
+                <Fa.FaComment/>
+                <span className='text-sm'>24</span>
+            </div>
+            <div className='flex flex-row items-center space-x-1'>
+                <Fa.FaThumbsDown/>
+                <span className='text-sm'>21</span>
+            </div>
+            <div className='flex flex-row items-center space-x-1'>
+                <Fa.FaShare/>
+            </div>
+            <div className='flex flex-row items-center space-x-1'>
+                <Fa.FaShare/>
+            </div>
         </div>
         
       </div>
