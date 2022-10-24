@@ -4,6 +4,7 @@ import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
 import ShareContent from '../components/ShareContent';
 import Tweet from '../components/Tweet';
+import CategoryCard from '../components/CategoryCard';
 function LandingPage() {
 
   function ListItem({word,path,icon}){
@@ -43,7 +44,26 @@ function LandingPage() {
           </section>
 
         </section>
-        <section id="leftBar" className=' h-[90vh] bg-[#e3ebfa] rounded-xl '>
+        <section id="leftBar" className=' h-[90vh] bg-[#e3ebfa] rounded-xl px-10 py-5'>
+          <div className='flex flex-row items-end justify-between'>
+            <h1 className='font-bold text-2xl'>Top Category</h1>
+            <h2 className='font-semibold underline text-[#3080ED] '>See All.</h2>
+          </div>
+          <div className='mt-4 space-y-4'>
+            <CategoryCard/>
+            <CategoryCard/>
+            <CategoryCard/>
+            <CategoryCard/>
+          </div>
+
+          {/* Trending */}
+          <div>
+            <div className='flex flex-row items-end justify-between'>
+              <h1 className='font-bold text-xl'>Trending</h1>
+            </div>
+
+
+          </div>
           
         </section>
       </section>
