@@ -5,7 +5,7 @@ import * as Fa from "react-icons/fa";
 function Tweet() {
   return (
     <div className=' p-3 w-full bg-white rounded-xl flex space-x-5'>
-      <img src="https://media.istockphoto.com/photos/portrait-of-smiling-mixed-race-woman-looking-at-camera-picture-id1319763830?k=20&m=1319763830&s=612x612&w=0&h=ooguDiiKrPmsnN4MKQ7S1pIfddwAqXnqF7XW4MF6gM8=" alt="" className='w-[70px] h-[70px] rounded-full' />
+      <img src="https://media.istockphoto.com/photos/portrait-of-smiling-mixed-race-woman-looking-at-camera-picture-id1319763830?k=20&m=1319763830&s=612x612&w=0&h=ooguDiiKrPmsnN4MKQ7S1pIfddwAqXnqF7XW4MF6gM8=" alt="" className='w-[70px] h-[70px] object-cover rounded-full' />
 
       <div>
         <div className="userInfo flex flex-row space-x-3 pt-2 mb-3 ">
