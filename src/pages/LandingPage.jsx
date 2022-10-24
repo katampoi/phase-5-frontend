@@ -6,6 +6,8 @@ import ShareContent from '../components/ShareContent';
 import Tweet from '../components/Tweet';
 import CategoryCard from '../components/CategoryCard';
 import TrendingCard from '../components/TrendingCard';
+import LandingImage from '../components/LandingImage';
+import UserCard from '../components/UserCard';
 function LandingPage() {
 
   function ListItem({word,path,icon}){
@@ -19,19 +21,23 @@ function LandingPage() {
     <div className='mx-3'>
       <NavBar/>
       <section id="body" className='grid grid-cols-[440px,840px,440px] justify-center gap-8 mt-4 '>
-        <section id="leftBar" className='h-[90vh] bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10'>
-          <ul className='px-10  space-y-2'>
-            <ListItem word={'Home'} icon={<Io.IoIosHome  size={24}/>}/>
-            <ListItem word={'Subscribe'} icon={<Fa.FaList size={24}/>}/>
-          </ul>
-          
-          <div className=' text-gray-700 text-[1.2rem]  px-10'>
-            <p>
-            Join Us to have more fun. Create an account,subscribe to gain access to more fun content. 
-            </p>
+        
+        <section className='space-y-4'>
+          <UserCard/>
+          <section id="leftBar" className='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10'>
+            <ul className='px-10  space-y-2'>
+              <ListItem word={'Home'} icon={<Io.IoIosHome  size={24}/>}/>
+              <ListItem word={'Subscribe'} icon={<Fa.FaList size={24}/>}/>
+            </ul>
+            
+            <div className=' text-gray-700 text-[1.2rem]  px-10'>
+              <p>
+              Join Us to have more fun. Create an account,subscribe to gain access to more fun content. 
+              </p>
 
-          </div>
+            </div>
 
+          </section>
         </section>
         <section id='middle' className=' h-[90vh] space-y-4'>
           <ShareContent/>
