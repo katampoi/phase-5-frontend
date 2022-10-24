@@ -6,6 +6,7 @@ import ShareContent from '../components/ShareContent';
 import Tweet from '../components/Tweet';
 import CategoryCard from '../components/CategoryCard';
 import TrendingCard from '../components/TrendingCard';
+import LandingImage from '../components/LandingImage';
 function LandingPage() {
 
   function ListItem({word,path,icon}){
@@ -34,7 +35,7 @@ function LandingPage() {
 
         </section>
         <section id='middle' className=' h-[90vh] space-y-4'>
-          <ShareContent/>
+          <LandingImage/>
 
           <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
           <Tweet/>
