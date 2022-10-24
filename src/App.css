@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+*{
+  font-family: Poppins;
+}
 @layer components {
     .Button1{
       @apply border-2 border-[#3080ED] mx-2 py-1 px-9 rounded-lg text-blue-500 text-lg font-semibold hover:bg-[#3080ED] hover:text-white cursor-pointer
@@ -17,5 +19,6 @@
     .search{
     @apply outline-none bg-[#F1F5FF] rounded-sm border-b px-4 py-2 border-transparent transition-all focus:border-[#F7AB0A]/40 focus:text-[#F7AB0A]/40 
     }
+
   
   }
