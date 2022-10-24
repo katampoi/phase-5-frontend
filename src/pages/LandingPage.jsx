@@ -5,6 +5,7 @@ import * as Fa from "react-icons/fa";
 import ShareContent from '../components/ShareContent';
 import Tweet from '../components/Tweet';
 import CategoryCard from '../components/CategoryCard';
+import TrendingCard from '../components/TrendingCard';
 function LandingPage() {
 
   function ListItem({word,path,icon}){
@@ -61,8 +62,9 @@ function LandingPage() {
             <div className='flex flex-row items-end justify-between'>
               <h1 className='font-bold text-xl'>Trending</h1>
             </div>
-
-
+            <TrendingCard/>
+            <TrendingCard/>
+            <TrendingCard/>
           </div>
           
         </section>
