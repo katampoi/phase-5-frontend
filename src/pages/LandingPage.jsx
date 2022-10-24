@@ -21,7 +21,7 @@ function LandingPage() {
       <NavBar/>
       <section id="body" className='grid grid-cols-[440px,840px,440px] justify-center gap-8 mt-4 '>
         
-        <section className='space-y-3'>
+        <section className='space-y-4'>
           <div className=' h-44 rounded-xl bg-[#e3ebfa]'>
 
           </div>

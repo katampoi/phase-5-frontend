@@ -4,7 +4,7 @@ import * as Fa from "react-icons/fa";
 
 function ShareContent({}) {
   return (
-    <div className='w-full h-fit bg-[#e3ebfa] rounded-xl pb-3'>
+    <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>
         <form >
             <textArea rows="2" placeholder='Share your content. . . . .' className='w-full h-full bg-transparent text-xl text-gray-500 p-5 outline-none' />
         </form>
