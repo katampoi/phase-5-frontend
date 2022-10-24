@@ -14,14 +14,14 @@ function UserCard() {
 
         </div>
 
-        <div className=''>
+        <div className='flex flex-row justify-between'>
             <div>
                 <h2 className='font-semibold'>2.1k</h2>
                 <p>Following</p>
             </div>
             <div>
                 <h2 className='font-semibold'>2.1k</h2>
-                <p>Following</p>
+                <p>Posts</p>
             </div>
         </div>
 
