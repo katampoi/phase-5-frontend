@@ -6,7 +6,7 @@ function ShareContent({}) {
   return (
     <div className='w-full h-fit bg-[#e3ebfa] rounded-xl pb-3'>
         <form >
-            <textArea rows="3" placeholder='Share your content. . . . .' className='w-full h-full bg-transparent text-xl text-gray-500 p-5 outline-none' />
+            <textArea rows="2" placeholder='Share your content. . . . .' className='w-full h-full bg-transparent text-xl text-gray-500 p-5 outline-none' />
         </form>
         <div className='mx-5 flex flex-row justify-between'>
             <div className='flex flex-row space-x-3'>
