@@ -18,7 +18,7 @@ function LandingPage() {
   return (
     <div className='mx-3'>
       <NavBar/>
-      <section id="body" className='grid grid-cols-[540px,auto,540px] justify-center gap-8 mt-4 '>
+      <section id="body" className='grid grid-cols-[440px,840px,440px] justify-center gap-8 mt-4 '>
         <section id="leftBar" className='h-[90vh] bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10'>
           <ul className='px-10  space-y-2'>
             <ListItem word={'Home'} icon={<Io.IoIosHome  size={24}/>}/>
@@ -45,16 +45,18 @@ function LandingPage() {
           </section>
 
         </section>
-        <section id="leftBar" className=' h-[90vh] bg-[#e3ebfa] rounded-xl px-10 py-5'>
-          <div className='flex flex-row items-end justify-between'>
-            <h1 className='font-bold text-2xl'>Top Category</h1>
-            <h2 className='font-semibold underline text-[#3080ED] '>See All.</h2>
-          </div>
-          <div className='mt-4 space-y-4'>
-            <CategoryCard/>
-            <CategoryCard/>
-            <CategoryCard/>
-            <CategoryCard/>
+        <section id="leftBar" className=' h-[90vh] bg-[#e3ebfa] rounded-xl px-10 py-5 space-y-5'>
+          <div>
+            <div className='flex flex-row items-end justify-between'>
+              <h1 className='font-bold text-2xl'>Top Category</h1>
+              <h2 className='font-semibold underline text-[#3080ED] '>See All.</h2>
+            </div>
+            <div className='mt-4 space-y-4'>
+              <CategoryCard/>
+              <CategoryCard/>
+              <CategoryCard/>
+              <CategoryCard/>
+            </div>
           </div>
 
           {/* Trending */}
