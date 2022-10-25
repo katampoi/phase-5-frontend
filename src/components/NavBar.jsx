@@ -2,6 +2,7 @@ import React from 'react'
 import Button from './Button'
 import LogoImage from './LogoImage'
 
+
 function NavBar() {
   return (
     <div className='grid grid-cols-[440px,840px,440px] gap-4 justify-center items-center mx-1'>
@@ -14,7 +15,11 @@ function NavBar() {
         </div>
       </div>
       <div className='flex flex-row'>
-        <Button word={'Login'} classN={'Button1'}/>
+
+      <a href="/LoginPage">
+      <Button word={'Login'} classN={'Button1'}/>
+      </a>
+        
         <Button word={'Register'} classN={'Button2'}/>
       </div>
     </div>
