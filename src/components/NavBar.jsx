@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './Button'
 import LogoImage from './LogoImage'
-
+import * as Fa from "react-icons/fa";
 
 function NavBar() {
   return (
@@ -14,13 +14,18 @@ function NavBar() {
           </form>
         </div>
       </div>
-      <div className='flex flex-row'>
-
-      <a href="/LoginPage">
-      <Button word={'Login'} classN={'Button1'}/>
-      </a>
-        
+      {/* <div className='flex flex-row'>
+        <Button word={'Login'} classN={'Button1'}/>
         <Button word={'Register'} classN={'Button2'}/>
+      </div> */}
+
+      <div id="user" className='flex flex-row items-center justify-end space-x-4 text-[#696767] text-xl'>
+        <Fa.FaBell/>
+        <Fa.FaBell/>
+        <div className='flex flex-row items-center'>
+          <img className='w-14 rounded-full h-14 object-cover' src="https://media.istockphoto.com/photos/portrait-concept-picture-id1016761216?k=20&m=1016761216&s=612x612&w=0&h=jEC8voGLjSyhdOO7EMQyrLtZ9m--TEUmd4X56sqyZk0=" alt="" />
+          <Fa.FaAngleDown className='cursor-pointer'/>
+        </div>
       </div>
     </div>
   )
