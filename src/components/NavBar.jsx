@@ -3,7 +3,7 @@ import Button from './Button'
 import LogoImage from './LogoImage'
 import * as Fa from "react-icons/fa";
 
-function NavBar() {
+function NavBar({user}) {
   return (
     <div className='grid grid-cols-[440px,840px,440px] gap-4 justify-center items-center mx-1'>
       <LogoImage/>
@@ -14,12 +14,9 @@ function NavBar() {
           </form>
         </div>
       </div>
-      {/* <div className='flex flex-row'>
-        <Button word={'Login'} classN={'Button1'}/>
-        <Button word={'Register'} classN={'Button2'}/>
-      </div> */}
-
-      <div id="user" className='flex flex-row items-center justify-end space-x-4 text-[#696767] text-xl'>
+      {
+        user ? 
+        <div id="user" className='flex flex-row items-center justify-end space-x-4 text-[#696767] text-xl'>
         <Fa.FaBell/>
         <Fa.FaBell/>
         <div className='flex flex-row items-center'>
@@ -27,6 +24,14 @@ function NavBar() {
           <Fa.FaAngleDown className='cursor-pointer'/>
         </div>
       </div>
+      :
+      <div className='flex flex-row'>
+      <Button word={'Login'} classN={'Button1'}/>
+      <Button word={'Register'} classN={'Button2'}/>
+    </div>
+      }
+
+     
     </div>
   )
 }

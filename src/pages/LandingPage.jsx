@@ -19,11 +19,11 @@ function LandingPage({user}) {
   }
   return (
     <div className='mx-3'>
-      <NavBar/>
+      <NavBar user={user}/>
       <section id="body" className='grid grid-cols-[440px,840px,440px] justify-center gap-8 mt-4 '>
         
         <section className='space-y-4'>
-          <UserCard/>
+          {user ? <UserCard/> : ''}
           <section id="leftBar" className='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10'>
             <ul className='px-10  space-y-2'>
               <ListItem word={'Home'} icon={<Io.IoIosHome  size={24}/>}/>
