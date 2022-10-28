@@ -25,7 +25,7 @@ function LandingPage({user}) {
       <section id="body" className='grid grid-cols-[440px,840px,440px] justify-center gap-8 mt-4 '>
         
         <section className='space-y-4'>
-          {user ? <UserCard/> : ''}
+          {user ? <UserCard user={user}/> : ''}
           <section id="leftBar" className={user ? classUser : classNoUser }>
             <ul className='px-10  space-y-2'>
               <ListItem word={'Home'} icon={<Io.IoIosHome  size={24}/>}/>
