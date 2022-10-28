@@ -8,9 +8,11 @@ import CategoryCard from '../components/CategoryCard';
 import TrendingCard from '../components/TrendingCard';
 import LandingImage from '../components/LandingImage';
 import UserCard from '../components/UserCard';
-function LandingPage() {
-
+function LandingPage({user}) {
+  const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
+  const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   function ListItem({word,path,icon}){
+    
     return(
       <li onClick={path} className='cursor-pointer flex flex-row space-x-3 text-[1.3rem] text-gray-700 font-semibold  w-full px-4 py-2 rounded-lg hover:bg-[#3080ED] hover:text-white'>
         {icon} <div>{word}</div>
@@ -19,12 +21,12 @@ function LandingPage() {
   }
   return (
     <div className='mx-3'>
-      <NavBar/>
+      <NavBar user={user}/>
       <section id="body" className='grid grid-cols-[440px,840px,440px] justify-center gap-8 mt-4 '>
         
         <section className='space-y-4'>
-          <UserCard/>
-          <section id="leftBar" className='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10'>
+          {user ? <UserCard/> : ''}
+          <section id="leftBar" className={user ? classUser : classNoUser }>
             <ul className='px-10  space-y-2'>
               <ListItem word={'Home'} icon={<Io.IoIosHome  size={24}/>}/>
               <ListItem word={'Subscribe'} icon={<Fa.FaList size={24}/>}/>
@@ -40,7 +42,7 @@ function LandingPage() {
           </section>
         </section>
         <section id='middle' className=' h-[90vh] space-y-4'>
-          <ShareContent/>
+          {user ? <ShareContent/> : <LandingImage/>}
 
           <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
           <Tweet/>
