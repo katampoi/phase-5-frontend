@@ -8,7 +8,7 @@ import CategoryCard from '../components/CategoryCard';
 import TrendingCard from '../components/TrendingCard';
 import LandingImage from '../components/LandingImage';
 import UserCard from '../components/UserCard';
-function LandingPage() {
+function LandingPage({user}) {
 
   function ListItem({word,path,icon}){
     return(
@@ -40,7 +40,7 @@ function LandingPage() {
           </section>
         </section>
         <section id='middle' className=' h-[90vh] space-y-4'>
-          <ShareContent/>
+          {user ? <ShareContent/> : <LandingImage/>}
 
           <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
           <Tweet/>

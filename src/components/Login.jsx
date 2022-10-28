@@ -1,9 +1,18 @@
 import * as React from 'react'
 
-function login() {
+function Login({onLogin}) {
   return (
     <div className='flex flex-col  m-auto w-screen h-screen items-center justify-center'>
-      <form action="" className='flex flex-col space-y-10 md:w-[450px] '>
+      <form onSubmit={()=>onLogin({
+    "username": "sid",
+    "email": "jovan@gmail.com",
+    "first_name": "jovan",
+    "last_name": "sid",
+    "user_type": "student",
+    "password_confirmation": "qwerty",
+    "password": "qwerty"
+    
+})} action="" className='flex flex-col space-y-10 md:w-[450px] '>
         <input type="email" placeholder='Email' className=' border border-black p-4 rounded-md bg-[#F5F7FB] text-black' />
         <input type="password" placeholder='Password' className='border border-black p-4 rounded-md bg-[#F5F7FB] text-blac' />
         <div className='flex flex-row items-center justify-between'>
@@ -17,4 +26,4 @@ function login() {
   )
 }
 
-export default login
+export default Login
