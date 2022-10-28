@@ -9,8 +9,10 @@ import TrendingCard from '../components/TrendingCard';
 import LandingImage from '../components/LandingImage';
 import UserCard from '../components/UserCard';
 function LandingPage({user}) {
-
+  const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
+  const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   function ListItem({word,path,icon}){
+    
     return(
       <li onClick={path} className='cursor-pointer flex flex-row space-x-3 text-[1.3rem] text-gray-700 font-semibold  w-full px-4 py-2 rounded-lg hover:bg-[#3080ED] hover:text-white'>
         {icon} <div>{word}</div>
@@ -24,7 +26,7 @@ function LandingPage({user}) {
         
         <section className='space-y-4'>
           {user ? <UserCard/> : ''}
-          <section id="leftBar" className='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10'>
+          <section id="leftBar" className={user ? classUser : classNoUser }>
             <ul className='px-10  space-y-2'>
               <ListItem word={'Home'} icon={<Io.IoIosHome  size={24}/>}/>
               <ListItem word={'Subscribe'} icon={<Fa.FaList size={24}/>}/>

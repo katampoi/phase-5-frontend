@@ -22,7 +22,7 @@ function App() {
   //   });
   // }, []);
 
-  if (user) {
+  if (!user) {
     console.log(user);
     return <LandingPage user={user}/>;
   } else {
