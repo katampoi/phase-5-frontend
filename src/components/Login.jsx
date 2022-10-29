@@ -5,11 +5,6 @@ function Login({onLogin}) {
   const [formData,setData] = useState({});
   const[data,setUser]=useState('');
 
-  // useEffect(()=>{
-  //   fetch('https://bookameal-backend.herokuapp.com/users')
-  //   .then(res=>res.json())
-  //   .then(data=>setUser(data))
-  //  },[])
     function handleChange(event) {
     const name=event.target.name;
     const value=event.target.value;
@@ -20,33 +15,42 @@ function Login({onLogin}) {
     }
 
     function handleSubmit(event) {
-          fetch("http://localhost:3000/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-        },
-          body: JSON.stringify(formData),
-        }).then((res)=>res.json()).then(data=>{
+        //   fetch("http://localhost:3000/login", {
+        //   method: "POST",
+        //   headers: {
+        //     "content-Type": "application/json",
+        // },
+        //   body: JSON.stringify(formData),
+        // }).then((res)=>res.json()).then(data=>{
           
           
-          if(data) {
-            onLogin(data)
-          }
-          else{
-            event.preventDefault()
-            alert(data.errors)
-          }
-        })
-      //   onLogin({
-      //     "username": "sid",
-      //     "email": "jovan@gmail.com",
-      //     "first_name": "jovan",
-      //     "last_name": "sid",
-      //     "user_type": "student",
-      //     "password_confirmation": "qwerty",
-      //     "password": "qwerty"
+        //   if(data.status==='ok') {
+        //     onLogin({
+        //       "username": "sid",
+        //       "email": "jovan@gmail.com",
+        //       "first_name": "jovan",
+        //       "last_name": "sid",
+        //       "user_type": "student",
+        //       "password_confirmation": "qwerty",
+        //       "password": "qwerty"
+              
+        //   })
+        //   }
+        //   else{
+        //     event.preventDefault()
+        //     alert(data.message)
+        //   }
+        // })
+        onLogin({
+          "username": "sid",
+          "email": "jovan@gmail.com",
+          "first_name": "jovan",
+          "last_name": "sid",
+          "user_type": "student",
+          "password_confirmation": "qwerty",
+          "password": "qwerty"
           
-      // })
+      })
     }
   return (
     <div className='flex flex-col  m-auto w-screen h-screen items-center justify-center'>

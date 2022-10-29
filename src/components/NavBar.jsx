@@ -5,6 +5,13 @@ import * as Fa from "react-icons/fa";
 import {useNavigate} from 'react-router-dom';
 
 function NavBar({user}) {
+  function Logout(){
+    return(
+      <div className='w-[400px] h-[400px] bg-[#F5F7FB] border-[#000000] border  absolute top-16 right-36 rounded-xl flex flex-col justify-end align-center'>
+        <button className='bg-[#3080ED] m-2 mx-8 p-2 rounded-full text-white'>Sign Out</button>
+      </div>
+    )
+  }
   return (
     <div className='grid grid-cols-[440px,840px,440px] gap-4 justify-center items-center mx-1'>
       <LogoImage/>
@@ -23,6 +30,7 @@ function NavBar({user}) {
         <div className='flex flex-row items-center'>
           <img className='w-14 rounded-full h-14 object-cover' src="https://media.istockphoto.com/photos/portrait-concept-picture-id1016761216?k=20&m=1016761216&s=612x612&w=0&h=jEC8voGLjSyhdOO7EMQyrLtZ9m--TEUmd4X56sqyZk0=" alt="" />
           <Fa.FaAngleDown className='cursor-pointer'/>
+          <Logout/>
         </div>
       </div>
       :
@@ -31,6 +39,7 @@ function NavBar({user}) {
       <Button onClick={''} word={'Register'} classN={'Button2'}/>
     </div>
       }
+     
 
      
     </div>
