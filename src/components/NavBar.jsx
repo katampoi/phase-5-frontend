@@ -5,7 +5,7 @@ import * as Fa from "react-icons/fa";
 import {useNavigate} from 'react-router-dom';
 
 function NavBar({user}) {
-  const [toggle,]
+  const [toggle,setToggle]=useState(false)
   function Logout({classoff}){
     return(
       <div className={classoff}>
@@ -18,8 +18,8 @@ function NavBar({user}) {
   }
 
 
-  function toogleLogOut(){
-
+  function toggleLogOut(){
+    setToggle(!toggle)
   }
   return (
     <div className='grid grid-cols-[440px,840px,440px] gap-4 justify-center items-center mx-1'>
@@ -38,8 +38,8 @@ function NavBar({user}) {
         <Fa.FaBell/>
         <div className='flex flex-row items-center'>
           <img className='w-14 rounded-full h-14 object-cover' src="https://media.istockphoto.com/photos/portrait-concept-picture-id1016761216?k=20&m=1016761216&s=612x612&w=0&h=jEC8voGLjSyhdOO7EMQyrLtZ9m--TEUmd4X56sqyZk0=" alt="" />
-          <Fa.FaAngleDown className='cursor-pointer'/>
-          <Logout classoff={'classOn'}/>
+          <Fa.FaAngleDown className='cursor-pointer' onClick={toggleLogOut}/>
+          {toggle ? <Logout classoff={'classOn'}/> :<Logout classoff={'classoff'}/>}
         </div>
       </div>
       :
