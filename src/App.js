@@ -11,16 +11,16 @@ function App() {
     setUser(user)
   }
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/users/1").then((response) => {
-  //     if (response.ok) {
-  //   response.json().then((user) => {
-  //     setUser(user)
+  useEffect(() => {
+    fetch("http://localhost:3000/users/1").then((response) => {
+      if (response.ok) {
+    response.json().then((user) => {
+      setUser(user)
       
-  //   });
-  //     }
-  //   });
-  // }, []);
+    });
+      }
+    });
+  }, []);
 
   if (user) {
     console.log(user);
