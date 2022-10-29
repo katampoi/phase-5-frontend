@@ -7,7 +7,8 @@ import {useNavigate} from 'react-router-dom';
 function NavBar({user}) {
   function Logout(){
     return(
-      <div className='w-[400px] h-[400px] bg-[#F5F7FB] border-[#000000] border  absolute top-16 right-36 rounded-xl flex flex-col justify-end align-center'>
+      <div className='w-[400px] h-[400px] bg-[#F5F7FB] border-[#000000] border  absolute top-16 right-36 rounded-xl flex flex-col justify-between p-3 align-center'>
+        <p className='text-red-500 text-center'>Alert! <br /> A you sure you want to leave soon??</p>
         <button className='bg-[#3080ED] m-2 mx-8 p-2 rounded-full text-white'>Sign Out</button>
       </div>
     )
