@@ -11,10 +11,13 @@ function NavBar({user}) {
       <div className={classoff}>
       <div className='w-[400px] h-[400px] bg-[#F5F7FB] border-[#000000] border   rounded-xl flex flex-col justify-between p-3 align-center'>
         <p className='text-red-500 text-center'>Alert! <br /> A you sure you want to leave soon??</p>
-        <button className='bg-[#3080ED] m-2 mx-8 p-2 rounded-full text-white'>Sign Out</button>
+        <button onClick={handleLogOut} className='bg-[#3080ED] m-2 mx-8 p-2 rounded-full text-white'>Sign Out</button>
       </div>
       </div>
     )
+  }
+  function handleLogOut(){
+    toggleLogOut()
   }
 
 
