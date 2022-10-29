@@ -17,4 +17,10 @@
   .search{
   @apply outline-none bg-[#F1F5FF] rounded-sm border-b px-4 py-2 border-transparent transition-all focus:border-[#F7AB0A]/40 focus:text-[#F7AB0A]/40
   }
+  .classOn{
+    @apply absolute top-16 right-36 
+  }
+  .classoff{
+    @apply hidden top-16 right-36 
+  }
 }
