@@ -26,19 +26,33 @@ function Login({onLogin}) {
             "Content-Type": "application/json",
         },
           body: JSON.stringify(formData),
-        }).then((res)=>Response.json()).then(data=>{
+        }).then((res)=>res.json()).then(data=>{
           
-          onLogin(data)
+          
           if(data) {
-
+            onLogin(data)
+          }
+          else{
+            event.preventDefault()
+            alert(data.errors)
           }
         })
+      //   onLogin({
+      //     "username": "sid",
+      //     "email": "jovan@gmail.com",
+      //     "first_name": "jovan",
+      //     "last_name": "sid",
+      //     "user_type": "student",
+      //     "password_confirmation": "qwerty",
+      //     "password": "qwerty"
+          
+      // })
     }
   return (
     <div className='flex flex-col  m-auto w-screen h-screen items-center justify-center'>
       <form onSubmit={handleSubmit} action="" className='flex flex-col space-y-10 md:w-[450px] '>
-        <input name='username' type="text" placeholder='Username' className=' border border-black p-4 rounded-md bg-[#F5F7FB] text-black' />
-        <input name='password' type="password" placeholder='Password' className='border border-black p-4 rounded-md bg-[#F5F7FB] text-blac' />
+        <input name='username' type="text" placeholder='Username' onChange={handleChange} className=' border border-black p-4 rounded-md bg-[#F5F7FB] text-black' />
+        <input name='password' type="password" placeholder='Password' onChange={handleChange} className='border border-black p-4 rounded-md bg-[#F5F7FB] text-blac' />
         <div className='flex flex-row items-center justify-between'>
           <button type='submit' className='bg-[#3080ED] px-12 py-2 rounded-[30px] text-white font-bold'>Login</button>
           <div className='text-[#3080ED] font-bold'>Forgot password?</div>

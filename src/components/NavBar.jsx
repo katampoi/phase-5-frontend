@@ -2,6 +2,7 @@ import React from 'react'
 import Button from './Button'
 import LogoImage from './LogoImage'
 import * as Fa from "react-icons/fa";
+import {useNavigate} from 'react-router-dom';
 
 function NavBar({user}) {
   return (
@@ -26,8 +27,8 @@ function NavBar({user}) {
       </div>
       :
       <div className='flex flex-row'>
-      <Button word={'Login'} classN={'Button1'}/>
-      <Button word={'Register'} classN={'Button2'}/>
+      <Button onClick={''} word={'Login'} classN={'Button1'}/>
+      <Button onClick={''} word={'Register'} classN={'Button2'}/>
     </div>
       }
 
