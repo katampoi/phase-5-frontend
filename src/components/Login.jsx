@@ -1,14 +1,15 @@
 import React,{useState,useEffect} from 'react'
+import {useNavigate} from 'react-router-dom';
 
 function Login({onLogin}) {
   const [formData,setData] = useState({});
   const[data,setUser]=useState('');
-  //const navigate = useNavigate();
-  useEffect(()=>{
-    fetch('https://bookameal-backend.herokuapp.com/users')
-    .then(res=>res.json())
-    .then(data=>setUser(data))
-   },[])
+
+  // useEffect(()=>{
+  //   fetch('https://bookameal-backend.herokuapp.com/users')
+  //   .then(res=>res.json())
+  //   .then(data=>setUser(data))
+  //  },[])
     function handleChange(event) {
     const name=event.target.name;
     const value=event.target.value;
@@ -25,20 +26,17 @@ function Login({onLogin}) {
             "Content-Type": "application/json",
         },
           body: JSON.stringify(formData),
+        }).then((res)=>Response.json()).then(data=>{
+          
+          onLogin(data)
+          if(data) {
+
+          }
         })
     }
   return (
     <div className='flex flex-col  m-auto w-screen h-screen items-center justify-center'>
-      <form onSubmit={()=>onLogin({
-    "username": "sid",
-    "email": "jovan@gmail.com",
-    "first_name": "jovan",
-    "last_name": "sid",
-    "user_type": "student",
-    "password_confirmation": "qwerty",
-    "password": "qwerty"
-    
-})} action="" className='flex flex-col space-y-10 md:w-[450px] '>
+      <form onSubmit={handleSubmit} action="" className='flex flex-col space-y-10 md:w-[450px] '>
         <input name='username' type="text" placeholder='Username' className=' border border-black p-4 rounded-md bg-[#F5F7FB] text-black' />
         <input name='password' type="password" placeholder='Password' className='border border-black p-4 rounded-md bg-[#F5F7FB] text-blac' />
         <div className='flex flex-row items-center justify-between'>
