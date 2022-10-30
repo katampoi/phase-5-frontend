@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react'
-import * as Io from "react-icons/io"
+import React,{useState} from 'react'
+// import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
-import Axios from 'axios'
+// import Axios from 'axios'
 function ShareContent({user}) {
     const [formDataa,setData] =useState()
     const [mediaOn,setMediaOn] = useState(false)
