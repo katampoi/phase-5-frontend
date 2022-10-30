@@ -19,12 +19,12 @@ function Tweet({data}) {
         a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a sentence and typically shown with a space on either side when written or printed. "I don't like the word ‘unofficial’" sentence and typically shown with a space on either side when written or printed.
 
         </p>
-        {/* <img className='rounded-xl my-3' src="https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667140575/k3qsnmjzczaxlabcpi9a.jpg" alt="" /> */}
+        <img className='rounded-xl my-3' src="https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126462/cld-sample-4.jpg" alt="" />
 
-        <video width="750" height="500" controls autoplay className='rounded-xl my-3'>
+        {/* <video width="750" height="500" controls autoplay className='rounded-xl my-3'>
           <source src="https://www.youtube.com/watch?v=bg1sT4ILG0w" type="video/mp4"/>
           
-        </video>
+        </video> */}
 
         <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6'>
             <div className='flex flex-row items-center space-x-1'>
