@@ -9,6 +9,7 @@ function ShareContent({user}) {
         const value=event.target.value;
         setData({
         ...formDataa,
+        user_id:user.id,
         [name]: value,
         })
         }
@@ -30,8 +31,9 @@ function ShareContent({user}) {
     }
   return (
     <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>
-        <form >
-            <textArea rows="2" placeholder='Share your content. . . . .' className='w-full h-full bg-transparent text-xl text-gray-500 p-5 outline-none' />
+        <form  className='p-2 px-5'>
+            <input type="text" placeholder='Title' className='border border-gray-400 outline-none' />
+            <textArea rows="1" placeholder='Type your content. . . . .' className='w-full  bg-transparent text-md text-gray-500 p-3 outline-none' />
             <input type="file" onChange={(event)=>{
                 uploadFile(event.target.files)
             }} />

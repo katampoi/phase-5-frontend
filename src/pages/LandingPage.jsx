@@ -42,7 +42,7 @@ function LandingPage({user}) {
           </section>
         </section>
         <section id='middle' className=' h-[90vh] space-y-4'>
-          {user ? <ShareContent/> : <LandingImage/>}
+          {user ? <ShareContent user={user}/> : <LandingImage/>}
 
           <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
           <Tweet/>
