@@ -33,9 +33,7 @@ function ShareContent({user}) {
         }).then(res=>res.json()).then(data=>{
             setData({...formDataa,media:data.url})
             console.log(formDataa);
-        })
-
-        
+        })   
     }
   return (
     <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>
@@ -44,20 +42,22 @@ function ShareContent({user}) {
             <input type="text" placeholder='Title' onChange={handleChange} name='title' className='border px-2 border-gray-400 outline-none' />
             <div className=' text-gray-500'>
                 Category:
-            <select name="category"  className=' w-16 text-center outline-none bg-transparent border border-none'>
+            <select name="category" onChange={handleChange}  className=' w-16 text-center outline-none bg-transparent border border-none'>
                 <option className='' value="Fun">Fun</option>
                 <option value="Fun">Ruby</option>
                 <option value="Fun">React</option>
             </select>
             </div></div>
             <textArea name='content' onChange={handleChange} rows="1" placeholder='Type your content. . . . .' className='w-full  bg-transparent text-md text-gray-500 p-3 outline-none' />
-            <input className={mediaOn ? "hidden" :'block'} type="file" onChange={(event)=>{
-                uploadFile(event.target.files)
-            }} />
-            <input className={mediaVidOn ? "hidden" :'block'} type="file" onChange={(event)=>{
-                uploadFile(event.target.files)
-            }} />
-        </form>
+            <div className='flex flex-row'>
+                <input className={mediaOn ? "hidden" :'block'} type="file" onChange={(event)=>{
+                    uploadFile(event.target.files)
+                }} />
+                <input className={mediaVidOn ? "hidden" :'block'} type="file" onChange={(event)=>{
+                    uploadFile(event.target.files)
+                }} />
+            </div>
+        
         <div className='mx-5 flex flex-row justify-between'>
             <div className='flex flex-row space-x-3'>
                 <div className='border h-fit border-gray-500 rounded-full p-2'>
@@ -67,10 +67,9 @@ function ShareContent({user}) {
                     <Fa.FaVideo onClick={handleToggle2}  className=' text-xl text-gray-600 cursor-pointer'/>
                 </div>
             </div>
-            <div className=' border-gray-500  p-2'>
-            <Fa.FaTelegramPlane className=' text-4xl cursor-pointer text-[#3080ED]'/>
-            </div>
+            <button className='border-gray-500 ' type='submit'><Fa.FaTelegramPlane  className=' text-4xl cursor-pointer text-[#3080ED]'/></button>  
         </div>
+        </form>
       
     </div>
   )
