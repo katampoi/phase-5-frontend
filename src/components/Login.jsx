@@ -42,6 +42,7 @@ function Login({onLogin}) {
         //   }
         // })
         onLogin({
+          "id": "1",
           "username": "sid",
           "email": "jovan@gmail.com",
           "first_name": "jovan",

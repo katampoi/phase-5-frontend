@@ -23,4 +23,10 @@
   .classoff{
     @apply hidden top-16 right-36 
   }
+  .off{
+    @apply hidden
+  }
+  .on{
+    @apply block mb-2
+  }
 }
