@@ -21,7 +21,10 @@ function ShareContent({user}) {
         fetch("https://api.cloudinary.com/v1_1/dfd8vbjzj/image/upload",{
             method: "POST",
             body: formData
-        }).then(res=>res.json()).then(data=>console.log(data))
+        }).then(res=>res.json()).then(data=>{
+            setData({...formDataa,media:data.url})
+            console.log(formDataa);
+        })
 
         
     }
