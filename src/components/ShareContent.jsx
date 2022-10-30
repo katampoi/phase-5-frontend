@@ -4,6 +4,7 @@ import * as Fa from "react-icons/fa";
 import Axios from 'axios'
 function ShareContent({user}) {
     const [formDataa,setData] =useState()
+    const [mediaOn,setMediaOn] = useState(false)
     function handleChange(event) {
         const name=event.target.name;
         const value=event.target.value;
@@ -12,6 +13,10 @@ function ShareContent({user}) {
         user_id:user.id,
         [name]: value,
         })
+        }
+
+        function handleToggle(){
+            setMediaOn(!mediaOn)
         }
 
     function uploadFile(files){
@@ -32,9 +37,9 @@ function ShareContent({user}) {
   return (
     <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>
         <form  className='p-2 px-5'>
-            <input type="text" placeholder='Title' className='border border-gray-400 outline-none' />
-            <textArea rows="1" placeholder='Type your content. . . . .' className='w-full  bg-transparent text-md text-gray-500 p-3 outline-none' />
-            <input type="file" onChange={(event)=>{
+            <input type="text" placeholder='Title' onChange={handleChange} name='title' className='border px-2 border-gray-400 outline-none' />
+            <textArea name='content' onChange={handleChange} rows="1" placeholder='Type your content. . . . .' className='w-full  bg-transparent text-md text-gray-500 p-3 outline-none' />
+            <input className={mediaOn ? "on" :'off'} type="file" onChange={(event)=>{
                 uploadFile(event.target.files)
             }} />
         </form>
@@ -44,7 +49,7 @@ function ShareContent({user}) {
                     <Fa.FaPlus className=' text-xl  text-gray-600 cursor-pointer'/>
                 </div>
                 <div className='border h-fit border-gray-500 rounded-full p-2'>
-                    <Fa.FaRegImages className=' text-xl text-gray-600 cursor-pointer'/>
+                    <Fa.FaRegImages onClick={handleToggle} className=' text-xl text-gray-600 cursor-pointer'/>
                 </div>
             </div>
             <div className=' border-gray-500  p-2'>
