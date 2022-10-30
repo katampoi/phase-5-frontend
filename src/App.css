@@ -27,6 +27,6 @@
     @apply hidden
   }
   .on{
-    @apply block
+    @apply block mb-2
   }
 }
