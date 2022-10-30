@@ -1,13 +1,28 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
 
-function ShareContent({}) {
+function ShareContent({user}) {
+    const [formData,setData] =useState()
+    function handleChange(event) {
+        const name=event.target.name;
+        const value=event.target.value;
+        setData({
+        ...formData,
+        [name]: value,
+        })
+        }
+
+    function uploadFile(files){
+        console.log(files[0]);
+    }
   return (
     <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>
         <form >
             <textArea rows="2" placeholder='Share your content. . . . .' className='w-full h-full bg-transparent text-xl text-gray-500 p-5 outline-none' />
-            <input type="file" />
+            <input type="file" onChange={(event)=>{
+                uploadFile(event.target.files)
+            }} />
         </form>
         <div className='mx-5 flex flex-row justify-between'>
             <div className='flex flex-row space-x-3'>
