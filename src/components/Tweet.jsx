@@ -4,10 +4,10 @@ import * as Fa from "react-icons/fa";
 
 function Tweet({data}) {
   return (
-    <div className=' p-3 w-full bg-white rounded-xl flex space-x-5'>
-      <div>
+    <div className=' p-3 w-full bg-white rounded-xl flex space-x-5 pr-8'>
+      {/* <div>
       <Fa.FaHeart/>
-      </div>
+      </div> */}
       <img src="https://media.istockphoto.com/photos/portrait-of-smiling-mixed-race-woman-looking-at-camera-picture-id1319763830?k=20&m=1319763830&s=612x612&w=0&h=ooguDiiKrPmsnN4MKQ7S1pIfddwAqXnqF7XW4MF6gM8=" alt="" className='w-[70px] h-[70px] object-cover rounded-full' />
 
       <div>
@@ -15,12 +15,18 @@ function Tweet({data}) {
             <h2 className='text-xl font-bold'>Job Sidney</h2>
             <p className='font-light text-gray-600'>@jobsidney</p>
         </div>
-        <p className='pr-8'>
+        <p className=''>
         a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a sentence and typically shown with a space on either side when written or printed. "I don't like the word ‘unofficial’" sentence and typically shown with a space on either side when written or printed.
 
         </p>
+        <img className='rounded-xl my-3' src="https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126462/cld-sample-4.jpg" alt="" />
 
-        <div className='flex flex-row mt-2 text-xl space-x-6'>
+        {/* <video width="750" height="500" controls autoplay className='rounded-xl my-3'>
+          <source src="https://www.youtube.com/watch?v=bg1sT4ILG0w" type="video/mp4"/>
+          
+        </video> */}
+
+        <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6'>
             <div className='flex flex-row items-center space-x-1'>
                 <Fa.FaHeart/>
                 <span className='text-sm'>2.1k</span>
