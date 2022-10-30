@@ -1,20 +1,29 @@
 import React,{useState,useEffect} from 'react'
 import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
-
+import Axios from 'axios'
 function ShareContent({user}) {
-    const [formData,setData] =useState()
+    const [formDataa,setData] =useState()
     function handleChange(event) {
         const name=event.target.name;
         const value=event.target.value;
         setData({
-        ...formData,
+        ...formDataa,
         [name]: value,
         })
         }
 
     function uploadFile(files){
-        console.log(files[0]);
+        const formData=new FormData()
+        formData.append("file",files[0])
+        formData.append("upload_preset","sidneyjobdata")
+        formData.append("cloud_name", "dfd8vbjzj")
+        fetch("https://api.cloudinary.com/v1_1/dfd8vbjzj/image/upload",{
+            method: "POST",
+            body: formData
+        }).then(res=>res.json()).then(data=>console.log(data))
+
+        
     }
   return (
     <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>
