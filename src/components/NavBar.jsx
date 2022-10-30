@@ -14,10 +14,10 @@ function NavBar() {
           </form>
         </div>
       </div>
-      {/* <div className='flex flex-row'>
+      <div className='flex flex-row'>
         <Button word={'Login'} classN={'Button1'}/>
         <Button word={'Register'} classN={'Button2'}/>
-      </div> */}
+      </div>
 
       <div id="user" className='flex flex-row items-center justify-end space-x-4 text-[#696767] text-xl'>
         <Fa.FaBell/>
