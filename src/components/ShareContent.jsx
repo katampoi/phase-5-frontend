@@ -32,7 +32,7 @@ function ShareContent({user}) {
             body: formData
         }).then(res=>res.json()).then(data=>{
             setData({...formDataa,media:data.url})
-            console.log(formDataa);
+            // console.log(formDataa);
         })   
     }
     function handleSubmit(event){
@@ -43,8 +43,8 @@ function ShareContent({user}) {
               "Content-Type": "application/json",
           },
             body: JSON.stringify(formDataa),
-          }).then(res=>res.json())
-          console.log(formDataa);
+          }).then(res=>res.json()).then(data=>console.log(data))
+        //   console.log(formDataa);
           }
   return (
     <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>

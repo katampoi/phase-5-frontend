@@ -3,6 +3,20 @@ import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
 
 function Tweet({data}) {
+
+  function Image({url}){
+    return (
+      <img className='rounded-xl my-3' src={url} alt="" />
+    )
+  }
+  function Video({url}){
+    return (
+      <video width="750" height="500" controls autoplay className='rounded-xl my-3'>
+        <source src={url} type="video/mp4"/>
+      
+      </video>
+    )
+  }
   return (
     <div className=' p-3 w-full bg-white rounded-xl flex space-x-5 pr-8'>
       {/* <div>
@@ -19,12 +33,16 @@ function Tweet({data}) {
         a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a sentence and typically shown with a space on either side when written or printed. "I don't like the word ‘unofficial’" sentence and typically shown with a space on either side when written or printed.
 
         </p>
-        <img className='rounded-xl my-3' src="https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126462/cld-sample-4.jpg" alt="" />
-
-        {/* <video width="750" height="500" controls autoplay className='rounded-xl my-3'>
-          <source src="https://www.youtube.com/watch?v=bg1sT4ILG0w" type="video/mp4"/>
+        <div>{
+          data ?
+          <Video url={"https://www.youtube.com/watch?v=bg1sT4ILG0w"}/>
+          :
+          <Image url={"https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126462/cld-sample-4.jpg"}/>
           
-        </video> */}
+        }
+        </div>
+        
+
 
         <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6'>
             <div className='flex flex-row items-center space-x-1'>

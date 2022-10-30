@@ -15,32 +15,33 @@ function Login({onLogin}) {
     }
 
     function handleSubmit(event) {
-        //   fetch("http://localhost:3000/login", {
-        //   method: "POST",
-        //   headers: {
-        //     "content-Type": "application/json",
-        // },
-        //   body: JSON.stringify(formData),
-        // }).then((res)=>res.json()).then(data=>{
+      // event.preventDefault()
+      //     fetch("http://localhost:3000/login", {
+      //     method: "POST",
+      //     header: {
+      //       "content-Type": "application/json",
+      //   },
+      //     body: JSON.stringify(formData),
+      //   }).then((res)=>res.json()).then(data=>{console.log(data);})
           
           
-        //   if(data.status==='ok') {
-        //     onLogin({
-        //       "username": "sid",
-        //       "email": "jovan@gmail.com",
-        //       "first_name": "jovan",
-        //       "last_name": "sid",
-        //       "user_type": "student",
-        //       "password_confirmation": "qwerty",
-        //       "password": "qwerty"
+          // if(data.status==='ok') {
+          //   onLogin({
+          //     "username": "sid",
+          //     "email": "jovan@gmail.com",
+          //     "first_name": "jovan",
+          //     "last_name": "sid",
+          //     "user_type": "student",
+          //     "password_confirmation": "qwerty",
+          //     "password": "qwerty"
               
-        //   })
-        //   }
-        //   else{
-        //     event.preventDefault()
-        //     alert(data.message)
-        //   }
-        // })
+          // })
+          // }
+          // else{
+          //   event.preventDefault()
+          //   alert(data.message)
+          // }
+        
         onLogin({
           "id": "1",
           "username": "sid",
