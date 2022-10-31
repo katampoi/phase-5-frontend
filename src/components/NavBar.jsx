@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Button from './Button'
 import LogoImage from './LogoImage'
-import * as Fa from "react-icons/fa";
+// import * as Fa from "react-icons/fa";
 
 
 function NavBar({user}) {
@@ -39,7 +39,7 @@ function NavBar({user}) {
         <Button word={'Register'} classN={'Button2'}/>
       </div>
 
-      <div id="user" className='flex flex-row items-center justify-end space-x-4 text-[#696767] text-xl'>
+      {/* <div id="user" className='flex flex-row items-center justify-end space-x-4 text-[#696767] text-xl'>
         <Fa.FaBell/>
         <Fa.FaBell/>
         <div className='flex flex-row items-center'>
@@ -52,7 +52,7 @@ function NavBar({user}) {
       <div className='flex flex-row'>
       <Button onClick={''} word={'Login'} classN={'Button1'}/>
       <Button onClick={''} word={'Register'} classN={'Button2'}/>
-    </div>
+    </div> */}
       
      
 
