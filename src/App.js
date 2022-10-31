@@ -7,15 +7,16 @@ import SignupPage from './pages/SignupPage';
 
 function App() {
   const [user, setUser] = useState(null);
-  function onLogin(user) {
-    setUser(user)
+  async function onLogin(user) {
+    await setUser(user)
   }
 
   useEffect(() => {
-    fetch("http://localhost:3000/users/1").then((response) => {
+     fetch(`http://localhost:3000/users/${1}`).then((response) => {
       if (response.ok) {
     response.json().then((user) => {
       setUser(user)
+      console.log(user);
       
     });
       }
@@ -24,7 +25,7 @@ function App() {
 
   if (user) {
     console.log(user);
-    return <LandingPage user={user}/>;
+    return <LandingPage user={user}/>
   } else {
     return <LoginPage onLogin={setUser} />;
   }

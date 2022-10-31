@@ -31,7 +31,7 @@ function ShareContent({user}) {
             method: "POST",
             body: formData
         }).then(res=>res.json()).then(data=>{
-            setData({...formDataa,media:data.url})
+            setData({...formDataa,media_img:data.url})
             // console.log(formDataa);
         })   
     }
@@ -61,7 +61,7 @@ function ShareContent({user}) {
             </div></div>
             <textArea name='content' onChange={handleChange} rows="1" placeholder='Type your content. . . . .' className='w-full  bg-transparent text-md text-gray-500 p-3 outline-none' />
             <div className='flex flex-row'>
-                <input className={mediaOn ? "on" :'off'} type="file" onChange={(event)=>{
+                <input className={mediaOn ? "on" :'off'} type="file"  onChange={(event)=>{
                     uploadFile(event.target.files)
                 }} />
                 <input className={mediaVidOn ? "on" :'off'} type="file" onChange={(event)=>{

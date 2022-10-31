@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import NavBar from '../components/NavBar'
 import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
@@ -11,6 +11,19 @@ import UserCard from '../components/UserCard';
 function LandingPage({user}) {
   const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
+const [category,setCateg]=useState()
+
+//  function categ({categ}){
+//      categ.map(data=>(
+//       <CategoryCard data={data}/>)
+//     )
+  
+// }
+useEffect(()=>{
+  fetch("http://localhost:3000/categories")
+  .then(res=>res.json())
+  .then(data=>setCateg(data))
+},[])
   function ListItem({word,path,icon}){
     
     return(
@@ -60,10 +73,7 @@ function LandingPage({user}) {
               <h2 className='font-semibold underline text-[#3080ED] '>See All.</h2>
             </div>
             <div className='mt-4 space-y-4'>
-              <CategoryCard data={{category_name:'Ruby'}}/>
-              <CategoryCard data={{category_name:'React'}}/>
-              <CategoryCard data={{category_name:'Rails'}}/>
-              <CategoryCard data={{category_name:'Memes'}}/>
+              {()=>category.map(data=>{return <CategoryCard data={data}/>})}
             </div>
           </div>
 

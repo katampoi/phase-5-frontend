@@ -15,44 +15,15 @@ function Login({onLogin}) {
     }
 
     function handleSubmit(event) {
-      // event.preventDefault()
-      //     fetch("http://localhost:3000/login", {
-      //     method: "POST",
-      //     header: {
-      //       "content-Type": "application/json",
-      //   },
-      //     body: JSON.stringify(formData),
-      //   }).then((res)=>res.json()).then(data=>{console.log(data);})
-          
-          
-          // if(data.status==='ok') {
-          //   onLogin({
-          //     "username": "sid",
-          //     "email": "jovan@gmail.com",
-          //     "first_name": "jovan",
-          //     "last_name": "sid",
-          //     "user_type": "student",
-          //     "password_confirmation": "qwerty",
-          //     "password": "qwerty"
-              
-          // })
-          // }
-          // else{
-          //   event.preventDefault()
-          //   alert(data.message)
-          // }
-        
-        onLogin({
-          "id": "1",
-          "username": "sid",
-          "email": "jovan@gmail.com",
-          "first_name": "jovan",
-          "last_name": "sid",
-          "user_type": "student",
-          "password_confirmation": "qwerty",
-          "password": "qwerty"
-          
-      })
+      event.preventDefault()
+          fetch("http://localhost:3000/login", {
+          method: "POST",
+          header: {
+            "content-Type": "application/json",
+        },
+          body: JSON.stringify(formData),
+        }).then((res)=>res.json()).then(data=>setUser(data))
+        onLogin(data)
     }
   return (
     <div className='flex flex-col  m-auto w-screen h-screen items-center justify-center'>

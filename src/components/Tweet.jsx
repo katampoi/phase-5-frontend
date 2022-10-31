@@ -11,7 +11,7 @@ function Tweet({data}) {
   }
   function Video({url}){
     return (
-      <video width="750" height="500" controls autoplay className='rounded-xl my-3'>
+      <video width="750" height="500" controls autoPlay className='rounded-xl my-3'>
         <source src={url} type="video/mp4"/>
       
       </video>
