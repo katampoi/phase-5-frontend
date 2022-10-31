@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import NavBar from '../components/NavBar'
 import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
@@ -9,16 +9,8 @@ import TrendingCard from '../components/TrendingCard';
 import LandingImage from '../components/LandingImage';
 import UserCard from '../components/UserCard';
 function LandingPage({user}) {
-
-  const [categories,setCategories]=useState()
   const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
-
-  fetch("http://localhost:3000/categories")
-  .then(res=>res.json()).then(categories=>setCategories(categories))
-
-
-
   function ListItem({word,path,icon}){
     
     return(
@@ -68,7 +60,10 @@ function LandingPage({user}) {
               <h2 className='font-semibold underline text-[#3080ED] '>See All.</h2>
             </div>
             <div className='mt-4 space-y-4'>
-              <CategoryCard data={{category_name:'hello'}}/>
+              <CategoryCard data={{category_name:'Ruby'}}/>
+              <CategoryCard data={{category_name:'React'}}/>
+              <CategoryCard data={{category_name:'Rails'}}/>
+              <CategoryCard data={{category_name:'Memes'}}/>
             </div>
           </div>
 

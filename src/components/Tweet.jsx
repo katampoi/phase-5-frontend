@@ -34,8 +34,8 @@ function Tweet({data}) {
 
         </p>
         <div>{
-          data ?
-          <Video url={"https://www.youtube.com/watch?v=bg1sT4ILG0w"}/>
+          !data ?
+          <Video url={"https://www.youtube.com/watch?v=NOiT7mZjPXw"}/>
           :
           <Image url={"https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126462/cld-sample-4.jpg"}/>
           
