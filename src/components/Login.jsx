@@ -1,14 +1,15 @@
 import React,{useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
-function Login({onLogin, navigate, }) {
+function Login({onLogin, }) {
 
 const [action,setAction] = useState(true);
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [error, setErrors] = useState([""]);
 const [isLoading, setIsLoading] = useState(false);
-// const navigate=useNavigate();
+const navigate=useNavigate();
 
 function handleAction(){
   setAction(!action)
@@ -17,7 +18,7 @@ function handleAction(){
 function handleSubmit(e){
   e.preventDefault();
   setIsLoading(true);
-  fetch("http://localhost:3000/login", {
+  fetch("http://127.0.0.1:3000/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,7 +28,7 @@ function handleSubmit(e){
     setIsLoading(false);
     if (r.ok) {
       r.json().then((user) => onLogin(user))
-      navigate('/LandingPage')
+      navigate('/Landing')
       alert('Login Successfull !...')
     } else {
       r.json().then((err) => setErrors(err.errors));

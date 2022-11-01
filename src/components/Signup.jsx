@@ -1,13 +1,15 @@
 import * as React from 'react'
 import {useEffect, useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function SignUp(){
 
   const [formData,setData] = useState({});
   const[data,setUser]=useState('');
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
+
   useEffect(()=>{
-    fetch('https://bookameal-backend.herokuapp.com/users')
+    fetch('http://127.0.0.1:3000/users')
     .then(res=>res.json())
     .then(data=>setUser(data))
    },[])
@@ -25,7 +27,7 @@ function SignUp(){
         alert('This user Alredy Exist!');
         event.preventDefault();
         } else {
-          fetch("https://bookameal-backend.herokuapp.com/users'", {
+          fetch("http://127.0.0.1:3000/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -33,7 +35,7 @@ function SignUp(){
           body: JSON.stringify(formData),
         })
           event.target.reset()
-         // navigate('/UserHome')
+         navigate('/LoginPage')
           alert(`User Account Created succesfully`)
         }
     }
