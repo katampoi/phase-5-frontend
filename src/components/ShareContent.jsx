@@ -1,7 +1,7 @@
-import React,{useState} from 'react'
-// import * as Io from "react-icons/io"
+import React,{useState,useEffect} from 'react'
+import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
-// import Axios from 'axios'
+import Axios from 'axios'
 function ShareContent({user}) {
     const [formDataa,setData] =useState()
     const [mediaOn,setMediaOn] = useState(false)
@@ -31,8 +31,8 @@ function ShareContent({user}) {
             method: "POST",
             body: formData
         }).then(res=>res.json()).then(data=>{
-            setData({...formDataa,media:data.url})
-            console.log(formDataa);
+            setData({...formDataa,media_img:data.url})
+            // console.log(formDataa);
         })   
     }
     function handleSubmit(event){
@@ -43,8 +43,8 @@ function ShareContent({user}) {
               "Content-Type": "application/json",
           },
             body: JSON.stringify(formDataa),
-          }).then(res=>res.json())
-          console.log(formDataa);
+          }).then(res=>res.json()).then(data=>console.log(data))
+        //   console.log(formDataa);
           }
   return (
     <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>
@@ -61,7 +61,7 @@ function ShareContent({user}) {
             </div></div>
             <textArea name='content' onChange={handleChange} rows="1" placeholder='Type your content. . . . .' className='w-full  bg-transparent text-md text-gray-500 p-3 outline-none' />
             <div className='flex flex-row'>
-                <input className={mediaOn ? "on" :'off'} type="file" onChange={(event)=>{
+                <input className={mediaOn ? "on" :'off'} type="file"  onChange={(event)=>{
                     uploadFile(event.target.files)
                 }} />
                 <input className={mediaVidOn ? "on" :'off'} type="file" onChange={(event)=>{
