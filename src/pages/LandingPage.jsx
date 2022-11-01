@@ -19,47 +19,6 @@ const [category,setCateg]=useState()
 //     )
   
 // }
-const data2=[
-  {
-    "user_id":1,
-    "title": 'ruby',
-    "category_id": 2,
-    "media_img":"https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126462/cld-sample-4.jpg",
-    "media_vid":null,
-    "content":"a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a sentence and typically shown with a space on either side when written or printed. I don't like the word ‘unofficial’ sentence and typically shown with a space on either side when written or printed"
-  },
-  {
-    "user_id":1,
-    "title": 'ruby',
-    "category_id": 2,
-    "media_img":null,
-    "media_vid":"https://res.cloudinary.com/dfd8vbjzj/video/upload/v1667284501/1666489114898_db8bv6.mp4",
-    "content":"a little funny for you this week"
-  },{
-    "user_id":1,
-    "title": 'intern',
-    "category_id": 2,
-    "media_img":"https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126461/cld-sample.jpg",
-    "media_vid":null,
-    "content":"get internship in this company"
-  },
-  {
-    "user_id":1,
-    "title": 'intern',
-    "category_id": 2,
-    "media_img":null,
-    "media_vid":"https://res.cloudinary.com/dfd8vbjzj/video/upload/v1667285345/1667217320615_h5ypsu.mp4",
-    "content":"get internship in this company"
-  },
-  {
-    "user_id":1,
-    "title": 'intern',
-    "category_id": 2,
-    "media_img":null,
-    "media_vid":null,
-    "content":"get internship in this company"
-  }
-]
 useEffect(()=>{
   fetch("http://localhost:3000/categories")
   .then(res=>res.json())
@@ -99,9 +58,11 @@ useEffect(()=>{
           {user ? <ShareContent user={user}/> : <LandingImage/>}
 
           <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
-          {
-            data2.map(tweet=><Tweet data={tweet}/>)
-          }
+          <Tweet/>
+          <Tweet/>
+          <Tweet/>
+          <Tweet/>
+          <Tweet/>
           </section>
 
         </section>

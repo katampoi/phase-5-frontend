@@ -4,8 +4,6 @@ import * as Fa from "react-icons/fa";
 
 function Tweet({data}) {
 
-
-
   function Image({url}){
     return (
       <img className='rounded-xl my-3' src={url} alt="" />
@@ -18,15 +16,6 @@ function Tweet({data}) {
       
       </video>
     )
-  }
-  const load=(data) =>{
-    if (data.media_vid) {
-      return (<Video url={data.media_vid}/>)
-    }else if(data.media_img){
-      return (<Image url={data.media_img}/>)
-    }else{
-      return ``
-    }
   }
   return (
     <div className=' p-3 w-full bg-white rounded-xl flex space-x-5 pr-8'>
@@ -41,11 +30,15 @@ function Tweet({data}) {
             <p className='font-light text-gray-600'>@jobsidney</p>
         </div>
         <p className=''>
-        {data.content}
+        a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a sentence and typically shown with a space on either side when written or printed. "I don't like the word ‘unofficial’" sentence and typically shown with a space on either side when written or printed.
 
         </p>
         <div>{
-          load(data)
+          !data ?
+          <Video url={"https://res.cloudinary.com/dfd8vbjzj/video/upload/v1667284501/1666489114898_db8bv6.mp4"}/>
+          :
+          <Image url={"https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126462/cld-sample-4.jpg"}/>
+          
         }
         </div>
         
