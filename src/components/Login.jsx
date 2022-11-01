@@ -16,24 +16,24 @@ function handleAction(){
 }
 
 function handleSubmit(e){
-  e.preventDefault();
-  setIsLoading(true);
-  fetch("http://127.0.0.1:3000/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ username, password }),
-  }).then((r) => {
-    setIsLoading(false);
-    if (r.ok) {
-      r.json().then((user) => onLogin(user))
-      navigate('/Landing')
-      alert('Login Successfull !...')
-    } else {
-      r.json().then((err) => setErrors(err.errors));
-    }
-  });
+  // e.preventDefault();
+  // setIsLoading(true);
+  // fetch("http://127.0.0.1:3000/login", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({ username, password }),
+  // }).then((r) => {
+  //   setIsLoading(false);
+  //   if (r.ok) {
+  //     r.json().then((user) => onLogin(user))
+  //     navigate('/Landing')
+  //     alert('Login Successfull !...')
+  //   } else {
+  //     r.json().then((err) => setErrors(err.errors));
+  //   }
+  // });
 }
   
   return (
