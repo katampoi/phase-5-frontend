@@ -7,8 +7,8 @@ import SignupPage from './pages/SignupPage';
 
 function App() {
   const [user, setUser] = useState(null);
-  async function onLogin(user) {
-    await setUser(user)
+  function onLogin(user) {
+     setUser(user)
   }
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function App() {
       if (response.ok) {
     response.json().then((user) => {
       setUser(user)
-      console.log(user);
+      onLogin(user)
       
     });
       }

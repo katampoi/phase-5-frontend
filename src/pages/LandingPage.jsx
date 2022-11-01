@@ -73,7 +73,7 @@ useEffect(()=>{
               <h2 className='font-semibold underline text-[#3080ED] '>See All.</h2>
             </div>
             <div className='mt-4 space-y-4'>
-              {()=>category.map(data=>{return <CategoryCard data={data}/>})}
+            {}
             </div>
           </div>
 

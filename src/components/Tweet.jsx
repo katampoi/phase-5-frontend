@@ -11,7 +11,7 @@ function Tweet({data}) {
   }
   function Video({url}){
     return (
-      <video width="750" height="500" controls autoPlay className='rounded-xl my-3'>
+      <video width="750" height="500" controls  className='rounded-xl my-3'>
         <source src={url} type="video/mp4"/>
       
       </video>
@@ -35,7 +35,7 @@ function Tweet({data}) {
         </p>
         <div>{
           !data ?
-          <Video url={"https://www.youtube.com/watch?v=NOiT7mZjPXw"}/>
+          <Video url={"https://res.cloudinary.com/dfd8vbjzj/video/upload/v1667284501/1666489114898_db8bv6.mp4"}/>
           :
           <Image url={"https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126462/cld-sample-4.jpg"}/>
           
