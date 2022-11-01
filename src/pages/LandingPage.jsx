@@ -12,6 +12,7 @@ function LandingPage({user}) {
   const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
 const [category,setCateg]=useState()
+const [tweete,setTweets]=useState([])
 
 //  function categ({categ}){
 //      categ.map(data=>(
@@ -61,6 +62,11 @@ const data2=[
   }
 ]
 useEffect(()=>{
+  fetch("http://localhost:3000/posts")
+  .then(res=>res.json())
+  .then(data=>setTweets(data))
+},[])
+useEffect(()=>{
   fetch("http://localhost:3000/categories")
   .then(res=>res.json())
   .then(data=>setCateg(data))
@@ -100,7 +106,7 @@ useEffect(()=>{
 
           <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
           {
-            data2.map(tweet=><Tweet data={tweet}/>)
+            tweete.map(tweet=><Tweet data={tweet}/>)
           }
           </section>
 

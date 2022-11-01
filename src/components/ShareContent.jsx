@@ -11,7 +11,7 @@ function ShareContent({user}) {
         const value=event.target.value;
         setData({
         ...formDataa,
-        user_id:user.id,
+        user_id:2,
         [name]: value,
         })
         }
@@ -32,19 +32,32 @@ function ShareContent({user}) {
             body: formData
         }).then(res=>res.json()).then(data=>{
             setData({...formDataa,media_img:data.url})
-            // console.log(formDataa);
+            console.log(formDataa);
+        })   
+    }
+    async function uploadVid(files){
+        const formData=new FormData()
+        formData.append("file",files[0])
+        formData.append("upload_preset","sidneyjobdata")
+        formData.append("cloud_name", "dfd8vbjzj")
+        await fetch("https://api.cloudinary.com/v1_1/dfd8vbjzj/video/upload",{
+            method: "POST",
+            body: formData
+        }).then(res=>res.json()).then(data=>{
+            setData({...formDataa,media_vid:data.url})
+            console.log(formDataa);
         })   
     }
     function handleSubmit(event){
         event.preventDefault()
-        fetch("https://localhost3000/posts", {
+        fetch("http://localhost:3000/posts", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
+            header: {
+              "content-Type": "application/json",
           },
             body: JSON.stringify(formDataa),
           }).then(res=>res.json()).then(data=>console.log(data))
-        //   console.log(formDataa);
+          console.log(formDataa);
           }
   return (
     <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>
@@ -65,7 +78,7 @@ function ShareContent({user}) {
                     uploadFile(event.target.files)
                 }} />
                 <input className={mediaVidOn ? "on" :'off'} type="file" onChange={(event)=>{
-                    uploadFile(event.target.files)
+                    uploadVid(event.target.files)
                 }} />
             </div>
         
