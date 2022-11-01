@@ -24,22 +24,22 @@ function Login({onLogin}) {
         }).then((res)=>res.json()).then(data=>{
           
           
-          if(data.status==='ok') {
-            onLogin({
-              "username": "sid",
-              "email": "jovan@gmail.com",
-              "first_name": "jovan",
-              "last_name": "sid",
-              "user_type": "student",
-              "password_confirmation": "qwerty",
-              "password": "qwerty"
+          // if(data.status==='ok') {
+          //   onLogin({
+          //     "username": "sid",
+          //     "email": "jovan@gmail.com",
+          //     "first_name": "jovan",
+          //     "last_name": "sid",
+          //     "user_type": "student",
+          //     "password_confirmation": "qwerty",
+          //     "password": "qwerty"
               
-          })
-          }
-          else{
-            event.preventDefault()
-            alert(data.message)
-          }
+          // })
+          // }
+          // else{
+          //   event.preventDefault()
+          //   alert(data.message)
+          // }
         })
         onLogin({
           "id": "1",

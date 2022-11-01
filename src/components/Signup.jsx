@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useNavigate} from 'react'
 
 function SignUp(){
 
