@@ -2,12 +2,12 @@ import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-function Login({onLogin, }) {
+function Login({onLogin }) {
 
 const [action,setAction] = useState(true);
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
-const [error, setErrors] = useState([""]);
+const [setErrors] = useState([""]);
 const [isLoading, setIsLoading] = useState(false);
 const navigate=useNavigate();
 
