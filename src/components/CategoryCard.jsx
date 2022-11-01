@@ -1,9 +1,7 @@
 import React from 'react'
-import { useEffect } from 'react'
 
 function CategoryCard() {
 
-  useEffect
 
   return (
         <div className='flex flex-row items-center space-x-2 md:space-x-5'>
