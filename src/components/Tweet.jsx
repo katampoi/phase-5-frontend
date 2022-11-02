@@ -33,6 +33,7 @@ function Tweet({data}) {
       {/* <div>
       <Fa.FaHeart/>
       </div> */}
+       
       <img src="https://media.istockphoto.com/photos/portrait-of-smiling-mixed-race-woman-looking-at-camera-picture-id1319763830?k=20&m=1319763830&s=612x612&w=0&h=ooguDiiKrPmsnN4MKQ7S1pIfddwAqXnqF7XW4MF6gM8=" alt="" className='w-[70px] h-[70px] object-cover rounded-full' />
 
       <div>
@@ -64,15 +65,17 @@ function Tweet({data}) {
                 <Fa.FaThumbsDown/>
                 <span className='text-sm'>21</span>
             </div>
-            <div className='flex flex-row items-center space-x-1'>
+            <div className='flex flex-row items-center space-x-1 '>
                 <Fa.FaShare/>
             </div>
             <div className='flex flex-row items-center space-x-1'>
-                <Fa.FaShare/>
+                <Fa.FaPencilAlt className='cursor-pointer'/>
             </div>
         </div>
+       
         
       </div>
+     
     </div>
   )
 }

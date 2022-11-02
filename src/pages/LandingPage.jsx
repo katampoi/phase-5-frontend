@@ -8,6 +8,7 @@ import CategoryCard from '../components/CategoryCard';
 import TrendingCard from '../components/TrendingCard';
 import LandingImage from '../components/LandingImage';
 import UserCard from '../components/UserCard';
+import TweetEdit from '../components/TweetEdit';
 function LandingPage({user}) {
   const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
@@ -107,7 +108,10 @@ useEffect(()=>{
           <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
           {
             tweete.map(tweet=><Tweet data={tweet}/>)
+            
           }
+            
+
           </section>
 
         </section>
