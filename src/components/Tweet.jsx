@@ -1,9 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
+import TweetEdit from './TweetEdit';
 
 function Tweet({data}) {
 
+const [editToggle,setEditToggle]= useState()
+
+
+  function toggle(){
+      setEditToggle(!editToggle)
+  }
 
 
   function Image({url}){
@@ -33,6 +40,7 @@ function Tweet({data}) {
       {/* <div>
       <Fa.FaHeart/>
       </div> */}
+       
       <img src="https://media.istockphoto.com/photos/portrait-of-smiling-mixed-race-woman-looking-at-camera-picture-id1319763830?k=20&m=1319763830&s=612x612&w=0&h=ooguDiiKrPmsnN4MKQ7S1pIfddwAqXnqF7XW4MF6gM8=" alt="" className='w-[70px] h-[70px] object-cover rounded-full' />
 
       <div>
@@ -40,7 +48,7 @@ function Tweet({data}) {
             <h2 className='text-xl font-bold'>Job Sidney</h2>
             <p className='font-light text-gray-600'>@jobsidney</p>
         </div>
-        <p className=''>
+        <p className=' w-full'>
         {data.content}
 
         </p>
@@ -48,10 +56,11 @@ function Tweet({data}) {
           load(data)
         }
         </div>
-        
 
 
-        <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6'>
+
+        <TweetEdit data={data} toggle={editToggle} func={toggle} />
+        <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6 '>
             <div className='flex flex-row items-center space-x-1'>
                 <Fa.FaHeart/>
                 <span className='text-sm'>2.1k</span>
@@ -64,15 +73,18 @@ function Tweet({data}) {
                 <Fa.FaThumbsDown/>
                 <span className='text-sm'>21</span>
             </div>
-            <div className='flex flex-row items-center space-x-1'>
+            <div className='flex flex-row items-center space-x-1 '>
                 <Fa.FaShare/>
             </div>
             <div className='flex flex-row items-center space-x-1'>
-                <Fa.FaShare/>
+                <Fa.FaPencilAlt onClick={toggle} className='cursor-pointer'/>
             </div>
         </div>
         
+       
+        
       </div>
+     
     </div>
   )
 }

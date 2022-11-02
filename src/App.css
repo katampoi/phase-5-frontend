@@ -30,4 +30,10 @@
   .on{
     @apply block mb-2
   }
+  .editOn{
+    @apply border p-3 w-full bg-white rounded-xl flex space-x-5 pr-8
+  }
+  .editHidden{
+    @apply hidden
+  }
 }
