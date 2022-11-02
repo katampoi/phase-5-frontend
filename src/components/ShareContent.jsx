@@ -35,12 +35,12 @@ function ShareContent({user}) {
             console.log(formDataa);
         })   
     }
-    async function uploadVid(files){
+     function uploadVid(files){
         const formData=new FormData()
         formData.append("file",files[0])
         formData.append("upload_preset","sidneyjobdata")
         formData.append("cloud_name", "dfd8vbjzj")
-        await fetch("https://api.cloudinary.com/v1_1/dfd8vbjzj/video/upload",{
+         fetch("https://api.cloudinary.com/v1_1/dfd8vbjzj/video/upload",{
             method: "POST",
             body: formData
         }).then(res=>res.json()).then(data=>{
@@ -49,15 +49,22 @@ function ShareContent({user}) {
         })   
     }
     function handleSubmit(event){
-        event.preventDefault()
+        
         fetch("http://localhost:3000/posts", {
             method: "POST",
-            header: {
+            headers: {
               "content-Type": "application/json",
           },
             body: JSON.stringify(formDataa),
-          }).then(res=>res.json()).then(data=>console.log(data))
+          }).then(res=>res.json()).then(data=>{
+            // if (data) {
+            
+            // }else{
+            //     event.preventDefault()
+            // }
+          })
           console.log(formDataa);
+          
           }
   return (
     <div className='w-full  h-44  bg-[#e3ebfa] rounded-xl pb-3'>
@@ -66,10 +73,10 @@ function ShareContent({user}) {
             <input type="text" placeholder='Title' onChange={handleChange} name='title' className='border w-[200px] px-2 bg-transparent border-b-gray-400 outline-none' />
             <div className=' text-gray-500'>
                 Category:
-            <select name="category" onChange={handleChange}  className=' w-16 text-center outline-none bg-transparent border border-none'>
-                <option className='' value="Fun">Fun</option>
-                <option value="Fun">Ruby</option>
-                <option value="Fun">React</option>
+            <select name="category_id" onChange={handleChange}  className=' w-16 text-center outline-none bg-transparent border border-none'>
+                <option className='' value="2">Job opportunity</option>
+                <option value="1">Ruby</option>
+                <option value="3">React</option>
             </select>
             </div></div>
             <textArea name='content' onChange={handleChange} rows="1" placeholder='Type your content. . . . .' className='w-full  bg-transparent text-md text-gray-500 p-3 outline-none' />
@@ -84,14 +91,14 @@ function ShareContent({user}) {
         
         <div className='mx-5 flex flex-row justify-between'>
             <div className='flex flex-row space-x-3'>
-                <div className='border h-fit border-gray-500 rounded-full p-2'>
-                    <Fa.FaRegImages onClick={handleToggle} className=' text-xl  text-gray-600 cursor-pointer'/>
+                <div className='border h-fit border-[#FA510F]  bg-[#FA510F] rounded-full p-2'>
+                    <Fa.FaRegImages onClick={handleToggle} className=' text-xl  text-[white] cursor-pointer'/>
                 </div>
-                <div className='border h-fit border-gray-500 rounded-full p-2'>
-                    <Fa.FaVideo onClick={handleToggle2}  className=' text-xl text-gray-600 cursor-pointer'/>
+                <div className='border h-fit bg-[#FA510F] rounded-full p-2'>
+                    <Fa.FaVideo onClick={handleToggle2}  className=' text-xl text-[white] cursor-pointer'/>
                 </div>
             </div>
-            <button className='border-gray-500 ' type='submit'><Fa.FaTelegramPlane  className=' text-4xl cursor-pointer text-[#3080ED]'/></button>  
+            <button className='border-gray-500 ' type='submit'><Fa.FaTelegramPlane  className=' text-4xl cursor-pointer text-[#12A5D7]'/></button>  
         </div>
         </form>
       
