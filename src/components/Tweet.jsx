@@ -1,9 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
+import TweetEdit from './TweetEdit';
 
 function Tweet({data}) {
 
+const [editToggle,setEditToggle]= useState()
+
+
+  function toggle(){
+      setEditToggle(!editToggle)
+  }
 
 
   function Image({url}){
@@ -49,9 +56,10 @@ function Tweet({data}) {
           load(data)
         }
         </div>
-        
 
 
+
+        <TweetEdit data={data} toggle={editToggle} func={toggle} />
         <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6'>
             <div className='flex flex-row items-center space-x-1'>
                 <Fa.FaHeart/>
@@ -69,9 +77,10 @@ function Tweet({data}) {
                 <Fa.FaShare/>
             </div>
             <div className='flex flex-row items-center space-x-1'>
-                <Fa.FaPencilAlt className='cursor-pointer'/>
+                <Fa.FaPencilAlt onClick={toggle} className='cursor-pointer'/>
             </div>
         </div>
+        
        
         
       </div>
