@@ -1,7 +1,7 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 
-function CategoryCard() {
+function CategoryCard({data}) {
 
   const navigate =useNavigate();
 
