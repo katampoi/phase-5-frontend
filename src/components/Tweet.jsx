@@ -48,7 +48,7 @@ const [editToggle,setEditToggle]= useState()
             <h2 className='text-xl font-bold'>Job Sidney</h2>
             <p className='font-light text-gray-600'>@jobsidney</p>
         </div>
-        <p className=''>
+        <p className=' w-full'>
         {data.content}
 
         </p>
@@ -60,7 +60,7 @@ const [editToggle,setEditToggle]= useState()
 
 
         <TweetEdit data={data} toggle={editToggle} func={toggle} />
-        <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6'>
+        <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6 '>
             <div className='flex flex-row items-center space-x-1'>
                 <Fa.FaHeart/>
                 <span className='text-sm'>2.1k</span>

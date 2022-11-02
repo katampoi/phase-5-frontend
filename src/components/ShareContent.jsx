@@ -49,6 +49,7 @@ function ShareContent({user}) {
         })   
     }
     function handleSubmit(event){
+        event.preventDefault(); 
         
         fetch("http://localhost:3000/posts", {
             method: "POST",
@@ -62,6 +63,7 @@ function ShareContent({user}) {
             // }else{
             //     event.preventDefault()
             // }
+            console.log(data);
           })
           console.log(formDataa);
           
