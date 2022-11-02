@@ -11,17 +11,14 @@ function App() {
      setUser(user)
   }
 
-  useEffect(() => {
-     fetch(`http://localhost:3000/users/${1}`).then((response) => {
-      if (response.ok) {
-    response.json().then((user) => {
-      setUser(user)
-      onLogin(user)
-      
-    });
-      }
-    });
-  }, []);
+  useEffect(()=>{
+    fetch("http://localhost:3000/users/1")
+    .then(res=>res.json()).then(data=>{
+      setUser(data)
+      console.log(user);
+      onLogin(data)
+    })
+  },[])
 
   if (user) {
     console.log(user);
@@ -29,21 +26,20 @@ function App() {
   } else {
     return <LoginPage onLogin={setUser} />;
   }
+
+
   return (
     <div className="p-2">
-    
       <Router>
 
         <Routes>
-        <Route exact path="" element={<LandingPage/>}></Route>
-        <Route exact path="/LoginPage" element={<LoginPage />}></Route>
-        <Route exact path="/SignupPage" element={<SignupPage />}></Route>
+        <Route exact path="" element={<LandingPage/>}/>
+        <Route exact path="/LoginPage" element={<LoginPage />}/>
+        <Route exact path="/SignupPage" element={<SignupPage />}/>
         </Routes>
       </Router>
-    
-      
     </div>
-  );
+  )
 }
 
 export default App;

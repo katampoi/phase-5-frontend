@@ -23,7 +23,7 @@ function Login({onLogin}) {
           body: JSON.stringify(formData),
         }).then((res)=>res.json()).then(data=>{
           
-          
+          onLogin(data)
           // if(data.status==='ok') {
           //   onLogin({
           //     "username": "sid",
@@ -41,17 +41,17 @@ function Login({onLogin}) {
           //   alert(data.message)
           // }
         })
-        onLogin({
-          "id": "1",
-          "username": "sid",
-          "email": "jovan@gmail.com",
-          "first_name": "jovan",
-          "last_name": "sid",
-          "user_type": "student",
-          "password_confirmation": "qwerty",
-          "password": "qwerty"
+      //   onLogin({
+      //     "id": "1",
+      //     "username": "sid",
+      //     "email": "jovan@gmail.com",
+      //     "first_name": "jovan",
+      //     "last_name": "sid",
+      //     "user_type": "student",
+      //     "password_confirmation": "qwerty",
+      //     "password": "qwerty"
           
-      })
+      // })
     }
   return (
     <div className='flex flex-col  m-auto w-screen h-screen items-center justify-center'>
@@ -72,3 +72,6 @@ function Login({onLogin}) {
   )
 }
 export default Login
+
+
+

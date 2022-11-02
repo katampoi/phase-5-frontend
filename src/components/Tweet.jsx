@@ -8,12 +8,12 @@ function Tweet({data}) {
 
   function Image({url}){
     return (
-      <img className='rounded-xl my-3' src={url} alt="" />
+      <img className='rounded-xl  my-3 ' src={url} alt="" />
     )
   }
   function Video({url}){
     return (
-      <video width="750" height="500" controls  className='rounded-xl my-3'>
+      <video height="500" controls  className='rounded-xl w-[750px] h-[400px] my-3'>
         <source src={url} type="video/mp4"/>
       
       </video>
