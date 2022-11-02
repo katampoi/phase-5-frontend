@@ -43,7 +43,7 @@ const data2=[
     "category_id": 2,
     "media_img":"https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126461/cld-sample.jpg",
     "media_vid":null,
-    "content":"get internship in this company"
+    "content":"Pets day around"
   },
   {
     "user_id":1,
@@ -72,6 +72,8 @@ useEffect(()=>{
   .then(res=>res.json())
   .then(data=>setCateg(data))
 },[])
+ let categ=fetch("http://localhost:3000/categories").then(res=>res.json()).then(data=>data)
+
   function ListItem({word,path,icon}){
     
     return(
@@ -106,6 +108,7 @@ useEffect(()=>{
           {user ? <ShareContent user={user}/> : <LandingImage/>}
 
           <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
+
           {
             tweete.map(tweet=><Tweet data={tweet}/>)
             
@@ -126,6 +129,7 @@ useEffect(()=>{
           <CategoryCard data={{category_name:"Ruby"}}/>
           <CategoryCard data={{category_name:"DevOps"}}/>
           <CategoryCard data={{category_name:"Data science"}}/>
+
             </div>
           </div>
           {/* Trending */}
