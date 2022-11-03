@@ -21,16 +21,18 @@ function Tweet({data, id}) {
       setLikes(post.like)})
     }
 
-  function handleAddLike(){
-    fetch(`http://127.0.0.1:3000/posts/${id}/like`,{
-      method: "PATCH",
-      headers: {
-        'content-Type':'application/json'
-      }
-    })
+    function handleAddLike(){
+      fetch(`http://127.0.0.1:3000/posts/${id}/like`,{
+        method: "PATCH",
+        headers: {
+          'content-Type':'application/json'
+        }
+      })
+
     .then(res => res.json())
     .then(post => setLikes(post.like))
-// const [editToggle,setEditToggle]= useState()
+ 
+  //  const [editToggle,setEditToggle]= useState()
 
 
   function toggle(){
