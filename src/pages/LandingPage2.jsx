@@ -10,7 +10,7 @@ import LandingImage from '../components/LandingImage';
 import UserCard from '../components/UserCard';
 import TweetEdit from '../components/TweetEdit';
 import LoginPage from './LoginPage';
-function LandingPage({data}) {
+function LandingPage2({data}) {
   const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
 const [category,setCateg]=useState([])
@@ -38,14 +38,14 @@ function ulter(){
 }
 
 
-// useEffect(()=>{
-//   fetch(`http://localhost:3000/users/${1}`)
-//   .then(res=>res.json()).then(data=>{
-//     setUser(data)
-//     console.log(data);
-//     onLogin(data)
-//   })
-// },[])
+useEffect(()=>{
+  fetch(`http://localhost:3000/users/${1}`)
+  .then(res=>res.json()).then(data=>{
+    setUser(data)
+    console.log(data);
+    onLogin(data)
+  })
+},[])
 
 //  function categ({categ}){
 //      categ.map(data=>(
@@ -140,4 +140,4 @@ useEffect(()=>{
   )
 }
 
-export default LandingPage
+export default LandingPage2

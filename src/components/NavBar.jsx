@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 
-function NavBar({user,onLogin}) {
+function NavBar({user,onLogin,loggedUser}) {
   const [toggle,setToggle]=useState(false)
   function Logout({classoff}){
     return(
@@ -49,7 +49,7 @@ function NavBar({user,onLogin}) {
       </div>
       :
       <div className='flex flex-row'>
-      <Button onClick={''} word={'Login'} classN={'Button1'} path={'/LoginPage'} element={<LoginPage/>}/>
+      <Button onClick={''} word={'Login'} classN={'Button1'} path={'/LoginPage'} element={<LoginPage onLogin={onLogin} loggedUser={loggedUser}/>}/>
       <Button onClick={''} word={'Register'} classN={'Button2'} path={'/SignupPage'} element={<SignupPage/>}/>
     </div>
       }

@@ -1,12 +1,20 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import LandingPage from '../pages/LandingPage';
+import LandingPage2 from '../pages/LandingPage2';
 
 
 function Login({onLogin,loggedUser}) {
   const [formData,setData] = useState({});
   const navigate = useNavigate()
- 
+ const [id,setId]=useState({})
+useEffect(()=>{
+  fetch(`http://localhost:3000/users/${1}`)
+  .then(res=>res.json()).then(data=>{
+    setId(data)
+    // console.log(data);
+    
+  })
+},[])
 
     function handleChange(event) {
     const name=event.target.name;
@@ -26,14 +34,13 @@ function Login({onLogin,loggedUser}) {
       },
         body: JSON.stringify(formData),
       }).then((res)=>res.json()).then(data=>{
-          loggedUser(data.id)
-          onLogin(data)
-          if (data.id) {
-            navigate('/Landing')
-            alert(data.id)
-          }
-
+        //  setId(data)
+        //  onLogin(data)
+        //  loggedUser()
+        
         })
+        
+        
     }
   return (
     <div className='flex flex-col  m-auto w-screen h-screen items-center justify-center'>
@@ -43,7 +50,7 @@ function Login({onLogin,loggedUser}) {
         <input name='password' type="password" placeholder='Password' onChange={handleChange} className='border border-black p-4 rounded-md bg-[#F5F7FB] text-blac' />
 
         <div className='flex flex-row items-center justify-between'>
-          <button type='submit' className='bg-[#3080ED] px-12 py-2 rounded-[30px] text-white font-bold'><Link to="/Landing" element={<LandingPage userr={1}/>} >Login</Link></button>
+          <button type='submit' className='bg-[#3080ED] px-12 py-2 rounded-[30px] text-white font-bold'><Link to="/Logged" element={<LandingPage2 data={id}/>}>Login</Link></button>
           {/* <button type='submit' classNameName='log' id='logIn'>{action?'Login' :'Delete'}</button> */}
           <div className='text-[#3080ED] font-bold'>Forgot password?</div>
         </div>
