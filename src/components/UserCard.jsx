@@ -17,11 +17,11 @@ function UserCard({user}) {
         <div className='flex flex-row justify-between'>
             <div>
                 <h2 className='font-semibold'>2.1k</h2>
-                <p>Following</p>
+                <p className='text-[#FA510F]'>Following</p>
             </div>
             <div>
-                <h2 className='font-semibold'>2.1k</h2>
-                <p>Posts</p>
+                <h2 className='font-semibold'>27</h2>
+                <p className='text-[#FA510F]'>Posts</p>
             </div>
         </div>
 
