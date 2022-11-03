@@ -15,21 +15,21 @@ function App() {
     await setId(userId)
   }
 
-  useEffect(()=>{
-    fetch(`http://localhost:3000/users/${1}`)
-    .then(res=>res.json()).then(data=>{
-      setUser(data)
-      console.log(data);
-      onLogin(data)
-    })
-  },[])
+  // useEffect(()=>{
+  //   fetch(`http://localhost:3000/users/${1}`)
+  //   .then(res=>res.json()).then(data=>{
+  //     setUser(data)
+  //     console.log(data);
+  //     onLogin(data)
+  //   })
+  // },[])
 
-  if (user===null || user===undefined){
-    console.log(user);
-    return <LandingPage />
-  } else  {
-    return <LandingPage user={user}/>;
-  }
+  // if (user===null || user===undefined){
+  //   console.log(user);
+  //   return <LandingPage />
+  // } else  {
+  //   return <LandingPage user={user}/>;
+  // }
 
 
   return (

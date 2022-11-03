@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-function Button({word,funct,classN}) {
+function Button({word,path,classN,element}) {
   return (
-    <div onClick={()=>funct} className={classN}>
-      {word}
+    <div  className={classN}>
+      <Link to={path} element={element}>{word}</Link>
     </div>
   )
 }
