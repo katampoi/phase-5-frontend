@@ -12,7 +12,7 @@ import TweetEdit from '../components/TweetEdit';
 function LandingPage({user}) {
   const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
-const [category,setCateg]=useState()
+const [category,setCateg]=useState([])
 const [tweete,setTweets]=useState([])
 
 //  function categ({categ}){
@@ -67,12 +67,12 @@ useEffect(()=>{
   .then(res=>res.json())
   .then(data=>setTweets(data))
 },[])
-useEffect(()=>{
-  fetch("http://localhost:3000/categories")
-  .then(res=>res.json())
-  .then(data=>setCateg(data))
-},[])
- let categ=fetch("http://localhost:3000/categories").then(res=>res.json()).then(data=>data)
+   const categ = async () =>{
+     const result = await fetch ('http://127.0.0.1:3000/categories')
+     const jsonResult = result.json();
+     setCateg(jsonResult);
+   }
+//  let categ=fetch("http://localhost:3000/categories").then(res=>res.json()).then(data=>data)
 
   function ListItem({word,path,icon}){
     
