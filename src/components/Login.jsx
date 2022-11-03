@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 
-function Login({onLogin}) {
+function Login({onLogin,loggedUser}) {
   const [formData,setData] = useState({});
+  const navigate = useNavigate()
  
 
     function handleChange(event) {
@@ -15,15 +17,20 @@ function Login({onLogin}) {
     }
 
     function handleSubmit(event) {
-          fetch("http://localhost:3000/login", {
-          method: "POST",
-          headers: {
-            "content-Type": "application/json",
-        },
-          body: JSON.stringify(formData),
-        }).then((res)=>res.json()).then(data=>{
-          
+        event.preventDefault()
+      fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+      },
+        body: JSON.stringify(formData),
+      }).then((res)=>res.json()).then(data=>{
+          loggedUser(data.id)
           onLogin(data)
+          if (data.id) {
+            navigate('/Landing')
+            alert(data.id)
+          }
           // if(data.status==='ok') {
           //   onLogin({
           //     "username": "sid",

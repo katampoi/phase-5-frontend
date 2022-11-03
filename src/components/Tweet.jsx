@@ -5,7 +5,7 @@ import TweetEdit from './TweetEdit';
 
 function Tweet({data}) {
 
-const [editToggle,setEditToggle]= useState()
+const [editToggle,setEditToggle]= useState(false)
 
 
   function toggle(){
