@@ -1,6 +1,6 @@
 
-import React,{useState} from 'react'
-import * as Io from "react-icons/io"
+import React,{useState, useEffect} from 'react'
+// import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
 import TweetEdit from './TweetEdit';
 
@@ -122,6 +122,7 @@ const [editToggle,setEditToggle]= useState()
      
     </div>
   )
+      }
 }
 
 export default Tweet

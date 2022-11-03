@@ -1,4 +1,5 @@
-import React,{useState,useEffect} from 'react';
+// import React,{useState,useEffect} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css';
 import LandingPage from './pages/LandingPage';
@@ -7,26 +8,26 @@ import SignupPage from './pages/SignupPage';
 import CategoryPage from './pages/CategoryPage'
 
 function App() {
-  const [user, setUser] = useState(null);
-  function onLogin(user) {
-     setUser(user)
-  }
+  // const [user, setUser] = useState(null);
+  // function onLogin(user) {
+  //    setUser(user)
+  // }
 
-  useEffect(()=>{
-    fetch("http://localhost:3000/users/1")
-    .then(res=>res.json()).then(data=>{
-      setUser(data)
-      console.log(user);
-      onLogin(data)
-    })
-  },[])
+  // useEffect(()=>{
+  //   fetch("http://localhost:3000/users/1")
+  //   .then(res=>res.json()).then(data=>{
+  //     setUser(data)
+  //     console.log(user);
+  //     onLogin(data)
+  //   })
+  // },[])
 
-  if (user) {
-    console.log(user);
-    return <LandingPage user={user}/>
-  } else {
-    return <LoginPage onLogin={setUser} />;
-  }
+  // if (user) {
+  //   console.log(user);
+  //   return <LandingPage user={user}/>
+  // } else {
+  //   return <LoginPage onLogin={setUser} />;
+  // }
 
 
   return (
