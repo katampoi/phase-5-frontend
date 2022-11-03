@@ -9,11 +9,29 @@ import TrendingCard from '../components/TrendingCard';
 import LandingImage from '../components/LandingImage';
 import UserCard from '../components/UserCard';
 import TweetEdit from '../components/TweetEdit';
-function LandingPage({user}) {
+import LoginPage from './LoginPage';
+function LandingPage({userr}) {
   const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
 const [category,setCateg]=useState([])
 const [tweete,setTweets]=useState([])
+const [user, setUser] = useState(null);
+const [userId,setId]=useState()
+function onLogin(user) {
+   setUser(user)
+}
+// async function loggedUser(userId){
+//   await setId(userId)
+// }
+
+// useEffect(()=>{
+//   fetch(`http://localhost:3000/users/${1}`)
+//   .then(res=>res.json()).then(data=>{
+//     setUser(data)
+//     console.log(data);
+//     onLogin(data)
+//   })
+// },[])
 
 //  function categ({categ}){
 //      categ.map(data=>(
@@ -21,47 +39,7 @@ const [tweete,setTweets]=useState([])
 //     )
   
 // }
-const data2=[
-  {
-    "user_id":1,
-    "title": 'ruby',
-    "category_id": 2,
-    "media_img":"https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126462/cld-sample-4.jpg",
-    "media_vid":null,
-    "content":"a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a sentence and typically shown with a space on either side when written or printed. I don't like the word ‘unofficial’ sentence and typically shown with a space on either side when written or printed"
-  },
-  {
-    "user_id":1,
-    "title": 'ruby',
-    "category_id": 2,
-    "media_img":null,
-    "media_vid":"https://res.cloudinary.com/dfd8vbjzj/video/upload/v1667284501/1666489114898_db8bv6.mp4",
-    "content":"a little funny for you this week"
-  },{
-    "user_id":1,
-    "title": 'intern',
-    "category_id": 2,
-    "media_img":"https://res.cloudinary.com/dfd8vbjzj/image/upload/v1667126461/cld-sample.jpg",
-    "media_vid":null,
-    "content":"Pets day around"
-  },
-  {
-    "user_id":1,
-    "title": 'intern',
-    "category_id": 2,
-    "media_img":null,
-    "media_vid":"https://res.cloudinary.com/dfd8vbjzj/video/upload/v1667285345/1667217320615_h5ypsu.mp4",
-    "content":"get internship in this company"
-  },
-  {
-    "user_id":1,
-    "title": 'intern',
-    "category_id": 2,
-    "media_img":null,
-    "media_vid":null,
-    "content":"get internship in this company"
-  }
-]
+
 useEffect(()=>{
   fetch("http://localhost:3000/posts")
   .then(res=>res.json())
@@ -84,7 +62,7 @@ useEffect(()=>{
   }
   return (
     <div className='mx-3'>
-      <NavBar user={user}/>
+      <NavBar user={user} onLogin={"onLogin"}   />
       <section id="body" className='grid grid-cols-[440px,840px,440px] justify-center gap-8 mt-4 '>
         
         <section className='space-y-4'>

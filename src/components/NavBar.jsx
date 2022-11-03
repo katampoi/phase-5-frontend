@@ -3,8 +3,10 @@ import Button from './Button'
 import LogoImage from './LogoImage'
 import * as Fa from "react-icons/fa";
 import {useNavigate} from 'react-router-dom';
+import LoginPage from '../pages/LoginPage';
+import SignupPage from '../pages/SignupPage';
 
-function NavBar({user}) {
+function NavBar({user,onLogin}) {
   const [toggle,setToggle]=useState(false)
   function Logout({classoff}){
     return(
@@ -47,8 +49,8 @@ function NavBar({user}) {
       </div>
       :
       <div className='flex flex-row'>
-      <Button onClick={''} word={'Login'} classN={'Button1'}/>
-      <Button onClick={''} word={'Register'} classN={'Button2'}/>
+      <Button onClick={''} word={'Login'} classN={'Button1'} path={'/LoginPage'} element={<LoginPage/>}/>
+      <Button onClick={''} word={'Register'} classN={'Button2'} path={'/SignupPage'} element={<SignupPage/>}/>
     </div>
       }
      

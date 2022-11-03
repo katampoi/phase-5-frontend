@@ -1,8 +1,11 @@
 import React,{useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
+import LandingPage from '../pages/LandingPage';
 
 
-function Login({onLogin}) {
+function Login({onLogin,loggedUser}) {
   const [formData,setData] = useState({});
+  const navigate = useNavigate()
  
 
     function handleChange(event) {
@@ -15,15 +18,20 @@ function Login({onLogin}) {
     }
 
     function handleSubmit(event) {
-          fetch("http://localhost:3000/login", {
-          method: "POST",
-          headers: {
-            "content-Type": "application/json",
-        },
-          body: JSON.stringify(formData),
-        }).then((res)=>res.json()).then(data=>{
-          
+        event.preventDefault()
+      fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+      },
+        body: JSON.stringify(formData),
+      }).then((res)=>res.json()).then(data=>{
+          loggedUser(data.id)
           onLogin(data)
+          if (data.id) {
+            navigate('/Landing')
+            alert(data.id)
+          }
           // if(data.status==='ok') {
           //   onLogin({
           //     "username": "sid",
@@ -61,7 +69,7 @@ function Login({onLogin}) {
         <input name='password' type="password" placeholder='Password' onChange={handleChange} className='border border-black p-4 rounded-md bg-[#F5F7FB] text-blac' />
 
         <div className='flex flex-row items-center justify-between'>
-          <button type='submit' className='bg-[#3080ED] px-12 py-2 rounded-[30px] text-white font-bold'   >Login</button>
+          <button type='submit' className='bg-[#3080ED] px-12 py-2 rounded-[30px] text-white font-bold'><Link to="/Landing" element={<LandingPage userr={1}/>} >Login</Link></button>
           {/* <button type='submit' classNameName='log' id='logIn'>{action?'Login' :'Delete'}</button> */}
           <div className='text-[#3080ED] font-bold'>Forgot password?</div>
         </div>

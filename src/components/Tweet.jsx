@@ -1,54 +1,61 @@
-
-import React, { useEffect } from 'react'
+import React,{useState,useEffect} from 'react'
 import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
-import { useState } from 'react';
+import TweetEdit from './TweetEdit';
 
-function Tweet({data, id}) {
-  const [dislikes, setDislikes] = useState('0')
-  const [likes, setLikes] = useState('2')
-  useEffect(loadLikes, [data, setLikes, setDislikes])
-  
+function Tweet({data}) {
 
-  function loadLikes() {
-    fetch(`http://127.0.0.1:3000/posts/${id}`)
-    .then(res => res.json())
-    .then(post => {
-      setDislikes(post.dislike)
-      setLikes(post.like)})
+const [editToggle,setEditToggle]= useState(false)
+const [dislikes, setDislikes] = useState('0')
+const [likes, setLikes] = useState('2')
+useEffect(loadLikes, [data, setLikes, setDislikes])
+
+
+function loadLikes() {
+  fetch(`http://127.0.0.1:3000/posts/${data.id}`)
+  .then(res => res.json())
+  .then(post => {
+    setDislikes(post.dislike)
+    setLikes(post.like)})
+  }
+
+function handleAddLike(){
+  fetch(`http://127.0.0.1:3000/posts/${data.id}/like`,{
+    method: "PATCH",
+    headers: {
+      'content-Type':'application/json'
     }
+  })
+  .then(res => res.json())
+  .then(post => setLikes(post.like))
+}
 
-  function handleAddLike(){
-    fetch(`http://127.0.0.1:3000/posts/${id}/like`,{
-      method: "PATCH",
-      headers: {
-        'content-Type':'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(post => setLikes(post.like))
+function handleAddDislike(){
+  fetch(`http://127.0.0.1:3000/posts/${data.id}/dislike`,{
+    method: "PATCH",
+    headers: {
+      'content-Type':'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(post => setDislikes(post.dislike))
+}
+
+
+
+  function toggle(){
+      setEditToggle(!editToggle)
   }
 
-  function handleAddDislike(){
-    fetch(`http://127.0.0.1:3000/posts/${id}/dislike`,{
-      method: "PATCH",
-      headers: {
-        'content-Type':'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(post => setDislikes(post.dislike))
-  }
-  
 
   function Image({url}){
     return (
-      <img className='rounded-xl my-3' src={url} alt="" />
+      <img className='rounded-xl  my-3 ' src={url} alt="" />
     )
   }
   function Video({url}){
     return (
-      <video width="750" height="500" controls  className='rounded-xl my-3'>
+      <video height="500" controls  className='rounded-xl w-[750px] h-[400px] my-3'>
         <source src={url} type="video/mp4"/>
       
       </video>
@@ -68,6 +75,7 @@ function Tweet({data, id}) {
       {/* <div>
       <Fa.FaHeart/>
       </div> */}
+       
       <img src="https://media.istockphoto.com/photos/portrait-of-smiling-mixed-race-woman-looking-at-camera-picture-id1319763830?k=20&m=1319763830&s=612x612&w=0&h=ooguDiiKrPmsnN4MKQ7S1pIfddwAqXnqF7XW4MF6gM8=" alt="" className='w-[70px] h-[70px] object-cover rounded-full' />
 
       <div>
@@ -75,7 +83,7 @@ function Tweet({data, id}) {
             <h2 className='text-xl font-bold'>Job Sidney</h2>
             <p className='font-light text-gray-600'>@jobsidney</p>
         </div>
-        <p className=''>
+        <p className=' w-full'>
         {data.content}
 
         </p>
@@ -83,10 +91,11 @@ function Tweet({data, id}) {
           load(data)
         }
         </div>
-        
 
 
-        <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6'>
+
+        <TweetEdit data={data} toggle={editToggle} func={toggle} />
+        <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6 '>
             <div className='flex flex-row items-center space-x-1'>
                 <Fa.FaHeart onClick={handleAddLike}/>
                 <span className='text-sm'>{likes}</span>
@@ -99,15 +108,18 @@ function Tweet({data, id}) {
                 <Fa.FaThumbsDown onClick={handleAddDislike}/>
                 <span className='text-sm'>{dislikes}</span>
             </div>
-            <div className='flex flex-row items-center space-x-1'>
+            <div className='flex flex-row items-center space-x-1 '>
                 <Fa.FaShare/>
             </div>
             <div className='flex flex-row items-center space-x-1'>
-                <Fa.FaShare/>
+                <Fa.FaPencilAlt onClick={toggle} className='cursor-pointer'/>
             </div>
         </div>
         
+       
+        
       </div>
+     
     </div>
   )
 }
