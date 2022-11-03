@@ -97,7 +97,7 @@ function handleAddDislike(){
         <TweetEdit data={data} toggle={editToggle} func={toggle} />
         <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6 '>
             <div className='flex flex-row items-center space-x-1'>
-                <Fa.FaHeart onClick={handleAddDislike}/>
+                <Fa.FaHeart onClick={handleAddLike}/>
                 <span className='text-sm'>{likes}</span>
             </div>
             <div className='flex flex-row items-center space-x-1'>
