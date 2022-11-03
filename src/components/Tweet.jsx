@@ -9,6 +9,7 @@ function Tweet({data, id}) {
   const [dislikes, setDislikes] = useState('0')
   const [likes, setLikes] = useState('2')
   useEffect(loadLikes, [data, setLikes, setDislikes])
+  const [editToggle,setEditToggle]= useState()
   
 
 
@@ -29,7 +30,7 @@ function Tweet({data, id}) {
     })
     .then(res => res.json())
     .then(post => setLikes(post.like))
-const [editToggle,setEditToggle]= useState()
+// const [editToggle,setEditToggle]= useState()
 
 
   function toggle(){
