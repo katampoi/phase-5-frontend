@@ -4,6 +4,7 @@ import './App.css';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import CategoryPage from './pages/CategoryPage'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -33,10 +34,12 @@ function App() {
       <Router>
 
         <Routes>
-        <Route exact path="" element={<LandingPage/>}/>
-        <Route exact path="/LoginPage" element={<LoginPage />}/>
-        <Route exact path="/SignupPage" element={<SignupPage />}/>
+        <Route exact path="" element={<LandingPage/>}></Route>
+        <Route exact path="/LoginPage" element={<LoginPage />}></Route>
+        <Route exact path="/SignupPage" element={<SignupPage />}></Route>
+        <Route exact path="/Category" element={<CategoryPage/>}></Route>
         </Routes>
+        
       </Router>
     </div>
   )
