@@ -13,16 +13,26 @@ function LandingPage({user}) {
   const classUser='min-h-[70vh] h-fit bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
   const classNoUser='h-[90vh]  bg-[#e3ebfa] rounded-xl flex flex-col justify-between py-10';
 const [category,setCateg]=useState()
+const [posts, setPosts] = useState([''])
 const [tweete,setTweets]=useState([])
 
+useEffect(loadPosts, [])
 //  function categ({categ}){
 //      categ.map(data=>(
 //       <CategoryCard data={data}/>)
 //     )
   
 // }
+function loadPosts() {
+  fetch('http://127.0.0.1:3000/posts')
+  .then(res => res.json())
+  .then(posts => setPosts(posts))
+}
+
+
 const data2=[
   {
+    "id": 1,
     "user_id":1,
     "title": 'ruby',
     "category_id": 2,
@@ -31,13 +41,16 @@ const data2=[
     "content":"a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a sentence and typically shown with a space on either side when written or printed. I don't like the word ‘unofficial’ sentence and typically shown with a space on either side when written or printed"
   },
   {
+    "id": 2,
     "user_id":1,
     "title": 'ruby',
     "category_id": 2,
     "media_img":null,
     "media_vid":"https://res.cloudinary.com/dfd8vbjzj/video/upload/v1667284501/1666489114898_db8bv6.mp4",
     "content":"a little funny for you this week"
-  },{
+  },
+  {
+    "id": 3,
     "user_id":1,
     "title": 'intern',
     "category_id": 2,
@@ -46,6 +59,7 @@ const data2=[
     "content":"Pets day around"
   },
   {
+    "id": 4,
     "user_id":1,
     "title": 'intern',
     "category_id": 2,
@@ -54,6 +68,7 @@ const data2=[
     "content":"get internship in this company"
   },
   {
+    "id": 5,
     "user_id":1,
     "title": 'intern',
     "category_id": 2,
@@ -110,8 +125,10 @@ useEffect(()=>{
           <section className="tweets bg-[#e3ebfa] h-[70vh] rounded-xl p-10 px-14 space-y-6 scrollbar ">
 
           {
+
+            posts.map(tweet=><Tweet data={tweet} id={tweet.id}/>)
             tweete.map(tweet=><Tweet data={tweet}/>)
-            
+      
           }
             
 

@@ -1,10 +1,34 @@
+
 import React,{useState} from 'react'
 import * as Io from "react-icons/io"
 import * as Fa from "react-icons/fa";
 import TweetEdit from './TweetEdit';
 
-function Tweet({data}) {
 
+function Tweet({data, id}) {
+  const [dislikes, setDislikes] = useState('0')
+  const [likes, setLikes] = useState('2')
+  useEffect(loadLikes, [data, setLikes, setDislikes])
+  
+
+
+  function loadLikes() {
+    fetch(`http://127.0.0.1:3000/posts/${id}`)
+    .then(res => res.json())
+    .then(post => {
+      setDislikes(post.dislike)
+      setLikes(post.like)})
+    }
+
+  function handleAddLike(){
+    fetch(`http://127.0.0.1:3000/posts/${id}/like`,{
+      method: "PATCH",
+      headers: {
+        'content-Type':'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(post => setLikes(post.like))
 const [editToggle,setEditToggle]= useState()
 
 
@@ -12,6 +36,17 @@ const [editToggle,setEditToggle]= useState()
       setEditToggle(!editToggle)
   }
 
+  function handleAddDislike(){
+    fetch(`http://127.0.0.1:3000/posts/${id}/dislike`,{
+      method: "PATCH",
+      headers: {
+        'content-Type':'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(post => setDislikes(post.dislike))
+  }
+  
 
   function Image({url}){
     return (
@@ -62,16 +97,16 @@ const [editToggle,setEditToggle]= useState()
         <TweetEdit data={data} toggle={editToggle} func={toggle} />
         <div className='flex flex-row justify-evenly mt-2 text-xl space-x-6 '>
             <div className='flex flex-row items-center space-x-1'>
-                <Fa.FaHeart/>
-                <span className='text-sm'>2.1k</span>
+                <Fa.FaHeart onClick={handleAddLike}/>
+                <span className='text-sm'>{likes}</span>
             </div>
             <div className='flex flex-row items-center space-x-1'>
                 <Fa.FaComment/>
                 <span className='text-sm'>24</span>
             </div>
             <div className='flex flex-row items-center space-x-1'>
-                <Fa.FaThumbsDown/>
-                <span className='text-sm'>21</span>
+                <Fa.FaThumbsDown onClick={handleAddDislike}/>
+                <span className='text-sm'>{dislikes}</span>
             </div>
             <div className='flex flex-row items-center space-x-1 '>
                 <Fa.FaShare/>
